@@ -1,0 +1,62 @@
+<div
+  id="refugio-toast-host"
+  class="pointer-events-none fixed inset-x-0 bottom-3 z-[80] mx-auto flex w-full max-w-xl flex-col items-center gap-2 px-3 sm:bottom-5"
+  aria-live="polite"
+  aria-atomic="false"
+></div>
+
+<script is:inline>
+  (function () {
+    const host = document.getElementById("refugio-toast-host");
+    if (!host) return;
+
+    const styleMap = {
+      error: "border-rose-300/45 bg-[#2b1018]/92 text-rose-100",
+      warning: "border-amber-300/45 bg-[#2b2110]/92 text-amber-100",
+      success: "border-emerald-300/45 bg-[#10271d]/92 text-emerald-100",
+      info: "border-gold-500/40 bg-[#111a34]/92 text-gold-100",
+    };
+
+    const iconMap = {
+      error: "fa-circle-exclamation",
+      warning: "fa-triangle-exclamation",
+      success: "fa-circle-check",
+      info: "fa-circle-info",
+    };
+
+    function createToast(payload) {
+      const kind = payload?.kind || "info";
+      const message = (payload?.message || "").trim();
+      if (!message) return;
+      const duration = Math.max(1400, payload?.durationMs || 3600);
+
+      const wrap = document.createElement("div");
+      wrap.className = `pointer-events-auto flex w-full items-start gap-2 rounded-xl border px-3 py-2 text-sm shadow-[0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-sm ${styleMap[kind] || styleMap.info}`;
+      wrap.innerHTML = `<i class="fa-solid ${iconMap[kind] || iconMap.info} mt-0.5 opacity-90" aria-hidden="true"></i><span class="leading-snug">${message}</span>`;
+      host.appendChild(wrap);
+
+      setTimeout(() => {
+        wrap.classList.add("opacity-0", "translate-y-2", "transition-all", "duration-300");
+      }, duration - 260);
+      setTimeout(() => wrap.remove(), duration + 80);
+    }
+
+    window.addEventListener("refugio:toast", function (ev) {
+      createToast(ev.detail || {});
+    });
+
+    window.addEventListener("error", function () {
+      createToast({
+        kind: "error",
+        message: "Ocurrió un error inesperado en la aplicación.",
+      });
+    });
+
+    window.addEventListener("unhandledrejection", function () {
+      createToast({
+        kind: "error",
+        message: "Falló una operación del sistema. Intenta nuevamente.",
+      });
+    });
+  })();
+</script>

@@ -1,0 +1,413 @@
+/* ============================================
+   ESTILOS CELESTIALES - REFUGIO DIVINO
+   ============================================ */
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    min-height: 100vh;
+    background: radial-gradient(ellipse at 30% 20%, #0b1a2f 0%, #030712 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  /* ============ FONDO CELESTIAL ============ */
+  .celestial-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .star {
+    position: absolute;
+    background-color: #f9f4da;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #fae467;
+    opacity: 0.6;
+    animation: twinkle 4s infinite ease-in-out;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.2); }
+  }
+  
+  .icon-constellation {
+    position: absolute;
+    color: rgba(212, 175, 55, 0.2);
+    font-size: 2.8rem;
+    filter: drop-shadow(0 0 8px #cdaa3c);
+    animation: floatIcon 10s infinite alternate;
+  }
+  
+  @keyframes floatIcon {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-20px) rotate(5deg); }
+  }
+  
+  /* ============ SELECTORES ============ */
+  .language-selector {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 20;
+    display: flex;
+    gap: 0.6rem;
+    background: rgba(20, 25, 40, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 3rem;
+    padding: 0.35rem;
+  }
+  
+  .lang-btn {
+    background: transparent;
+    border: none;
+    color: #c4b27c;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .lang-btn.active {
+    background: #d4af37;
+    color: #0b1221;
+    box-shadow: 0 0 18px #e4c468;
+  }
+  
+  .lang-btn:hover:not(.active) {
+    color: #f5e498;
+    background: rgba(212, 175, 55, 0.15);
+  }
+  
+  /* Selector de estado de ánimo */
+  .mood-selector {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 20;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background: rgba(20, 25, 40, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 2rem;
+    padding: 0.5rem;
+    max-width: 90vw;
+  }
+  
+  .mood-btn {
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #c4b27c;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: nowrap;
+  }
+  
+  .mood-btn.active {
+    background: #d4af37;
+    color: #0b1221;
+    border-color: #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  }
+  
+  .mood-btn:hover:not(.active) {
+    background: rgba(212, 175, 55, 0.2);
+    color: #f5e498;
+  }
+  
+  /* ============ TARJETA PRINCIPAL ============ */
+  .verse-card {
+    position: relative;
+    z-index: 10;
+    max-width: 720px;
+    width: 100%;
+    background: rgba(255, 250, 240, 0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 3.5rem;
+    padding: 2.8rem 2.2rem;
+    box-shadow: 0 30px 55px rgba(0, 0, 0, 0.7), 0 0 25px rgba(197, 160, 60, 0.3);
+    text-align: center;
+    color: #f5efdf;
+    transition: all 0.3s ease;
+    margin-top: 4rem;
+  }
+  
+  .verse-card:hover {
+    box-shadow: 0 35px 65px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.5);
+  }
+  
+  /* Etiqueta de categoría */
+  .category-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(212, 175, 55, 0.15);
+    color: #d4af37;
+    padding: 0.4rem 1.2rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  /* Encabezado sagrado */
+  .holy-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-bottom: 2.2rem;
+    flex-wrap: wrap;
+  }
+  
+  .holy-header i {
+    font-size: 2.4rem;
+    color: #e4c76b;
+    filter: drop-shadow(0 0 10px #d4af37);
+  }
+  
+  .holy-header h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    background: linear-gradient(180deg, #f3e3b0 0%, #c99d3b 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Contenido del versículo */
+  .verse-content {
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .verse-text {
+    font-size: 2.1rem;
+    line-height: 1.7;
+    margin: 1.2rem 0 1.8rem;
+    font-style: italic;
+    color: #f7f1db;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    padding: 0 0.5rem;
+    transition: opacity 0.3s ease;
+  }
+  
+  .citation {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #d4af37;
+    background: rgba(10, 20, 35, 0.55);
+    display: inline-block;
+    padding: 0.6rem 2rem;
+    border-radius: 3rem;
+    letter-spacing: 0.8px;
+    border: 1px solid #5a4a2c;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(5px);
+  }
+  
+  /* Divisor decorativo */
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.7rem 0 2rem;
+    color: #b49450;
+  }
+  
+  .divider i {
+    font-size: 1.4rem;
+    opacity: 0.8;
+  }
+  
+  .divider-line {
+    height: 1px;
+    width: 80px;
+    background: linear-gradient(to right, transparent, #c4a747, transparent);
+  }
+  
+  /* Botones de acción */
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+    margin-top: 0.6rem;
+  }
+  
+  .btn {
+    background: transparent;
+    border: 1px solid #d4af37;
+    color: #f0e2b0;
+    padding: 0.8rem 2.1rem;
+    border-radius: 3rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  .btn-primary {
+    background: rgba(212, 175, 55, 0.15);
+  }
+  
+  .btn-primary:hover {
+    background: #d4af37;
+    color: #0a101f;
+    border-color: #f5e7b3;
+    box-shadow: 0 0 20px #e6c468;
+    font-weight: 600;
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    background: rgba(100, 150, 200, 0.1);
+    border-color: rgba(150, 180, 210, 0.5);
+    color: #c0d0e0;
+  }
+  
+  .btn-secondary:hover {
+    background: #4a90d9;
+    color: white;
+    border-color: #6ab0ff;
+    box-shadow: 0 0 20px #4a90d9;
+    transform: translateY(-2px);
+  }
+  
+  .btn i {
+    font-size: 1.1rem;
+  }
+  
+  /* Contador de versículos */
+  .verse-counter {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: #8b8b7a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    opacity: 0.8;
+  }
+  
+  .verse-counter i {
+    color: #d4af37;
+  }
+  
+  /* Pie de página */
+  .footer-note {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: #8b8b7a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .footer-note i {
+    color: #d4af37;
+    font-size: 0.9rem;
+  }
+  
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    .verse-card {
+      padding: 2rem 1.5rem;
+      border-radius: 2.5rem;
+      margin-top: 7rem;
+    }
+  
+    .verse-text {
+      font-size: 1.7rem;
+    }
+  
+    .holy-header h1 {
+      font-size: 1.5rem;
+    }
+  
+    .mood-selector {
+      top: 5rem;
+      left: 0.5rem;
+      right: 0.5rem;
+      justify-content: center;
+    }
+  
+    .language-selector {
+      top: 0.5rem;
+      right: 0.5rem;
+    }
+  
+    .actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      padding: 0.8rem;
+    }
+  
+    .verse-text {
+      font-size: 1.4rem;
+    }
+  
+    .mood-btn {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.7rem;
+    }
+  }
+  
+  /* Animación de carga */
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  .loading {
+    animation: pulse 1.5s infinite;
+  }

@@ -1,0 +1,100 @@
+---
+---
+
+<script is:inline>
+  (function () {
+    const MOODS = new Set([
+      "all",
+      "comfort",
+      "wisdom",
+      "hope",
+      "love",
+      "repentance",
+    ]);
+
+    function applyFromQuery() {
+      const q = new URLSearchParams(window.location.search);
+      const lang = q.get("lang") === "en" ? "en" : "es";
+      const raw = q.get("mood");
+      const mLower = raw ? raw.toLowerCase() : "";
+      const mood = mLower && MOODS.has(mLower) ? mLower : "all";
+
+      document.documentElement.setAttribute("data-url-lang", lang);
+      document.documentElement.setAttribute("data-url-mood", mood);
+
+      const hM = document.getElementById("refugio-hidden-mood");
+      if (hM && hM instanceof HTMLInputElement) hM.value = mood;
+
+      document.querySelectorAll("input.refugio-mood-lang").forEach(function (el) {
+        if (el instanceof HTMLInputElement) el.value = lang;
+      });
+
+      const moodSel = document.getElementById("refugio-mood-select");
+      if (moodSel && moodSel instanceof HTMLSelectElement) {
+        if (MOODS.has(mood)) {
+          moodSel.value = mood;
+        }
+        var idx = -1;
+        for (var i = 0; i < moodSel.options.length; i++) {
+          if (moodSel.options[i].value === mood) {
+            idx = i;
+            break;
+          }
+        }
+        if (idx >= 0) moodSel.selectedIndex = idx;
+      }
+
+      document.querySelectorAll("[data-lang-btn]").forEach(function (b) {
+        const v = b.getAttribute("data-lang-btn");
+        b.classList.toggle("nav-active", v === lang);
+        b.setAttribute("aria-pressed", v === lang ? "true" : "false");
+      });
+      document.querySelectorAll("[data-mood-btn]").forEach(function (b) {
+        const v = b.getAttribute("data-mood-btn");
+        b.classList.toggle("nav-active", v === mood);
+        b.setAttribute("aria-pressed", v === mood ? "true" : "false");
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", applyFromQuery);
+    } else {
+      applyFromQuery();
+    }
+  })();
+</script>
+
+<style is:global>
+  [data-mood-btn].nav-active {
+    border-color: #e8c547 !important;
+    background: linear-gradient(180deg, #e4c04a, #c9a227) !important;
+    color: #0a0b14 !important;
+    font-weight: 700 !important;
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.12),
+      0 0 20px rgba(212, 175, 55, 0.35) !important;
+  }
+  [data-mood-btn].nav-active i {
+    color: #0a0b14;
+    opacity: 1 !important;
+  }
+  [data-lang-btn].nav-active {
+    border-color: #e8c547 !important;
+    background: linear-gradient(180deg, #e4c04a, #c9a227) !important;
+    color: #0a0b14 !important;
+    font-weight: 800 !important;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) !important;
+  }
+  html[data-url-lang="en"] .i18n-es {
+    display: none !important;
+  }
+  html[data-url-lang="en"] .i18n-en {
+    display: inline !important;
+  }
+  html[data-url-lang="es"] .i18n-en {
+    display: none !important;
+  }
+  html[data-url-lang="es"] .i18n-es {
+    display: inline !important;
+  }
+</style>

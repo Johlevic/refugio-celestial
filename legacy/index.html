@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refugio Celestial · Meditación Bíblica</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="celestial-bg" id="celestialBg"></div>
+
+  <!-- Selector de idioma -->
+  <div class="language-selector">
+    <button class="lang-btn active" id="langEsBtn" title="Español">
+      <i class="fas fa-globe-americas"></i> ES
+    </button>
+    <button class="lang-btn" id="langEnBtn" title="English">
+      <i class="fas fa-globe"></i> EN
+    </button>
+  </div>
+
+  <!-- Selector de categoría emocional -->
+  <div class="mood-selector">
+    <button class="mood-btn active" data-mood="all" title="Todos los versículos">
+      <i class="fas fa-infinity"></i> Todos
+    </button>
+    <button class="mood-btn" data-mood="comfort" title="Consuelo y paz">
+      <i class="fas fa-dove"></i> Consuelo
+    </button>
+    <button class="mood-btn" data-mood="wisdom" title="Sabiduría y consejo">
+      <i class="fas fa-lightbulb"></i> Sabiduría
+    </button>
+    <button class="mood-btn" data-mood="hope" title="Esperanza y promesas">
+      <i class="fas fa-star"></i> Esperanza
+    </button>
+    <button class="mood-btn" data-mood="love" title="Amor y compasión">
+      <i class="fas fa-heart"></i> Amor
+    </button>
+    <button class="mood-btn" data-mood="repentance" title="Arrepentimiento y perdón">
+      <i class="fas fa-pray"></i> Perdón
+    </button>
+  </div>
+
+  <!-- Tarjeta principal del versículo -->
+  <main class="verse-card" id="verseCardUI">
+    <div class="category-tag" id="categoryTag">
+      <i class="fas fa-book-bible"></i> Todos
+    </div>
+    
+    <div class="holy-header">
+      <i class="fas fa-dove"></i>
+      <h1 id="appTitle">ALIENTO DIVINO</h1>
+      <i class="fas fa-cross"></i>
+    </div>
+
+    <div class="verse-content">
+      <p class="verse-text" id="verseText">
+        "Jehová es mi pastor; nada me faltará."
+      </p>
+      <div class="citation" id="verseCitation">Salmo 23:1</div>
+    </div>
+
+    <div class="divider">
+      <span class="divider-line"></span>
+      <i class="fas fa-feather-alt"></i>
+      <span class="divider-line"></span>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="newVerseBtn">
+        <i class="fas fa-sync-alt"></i> 
+        <span id="newVerseLabel">Nuevo Versículo</span>
+      </button>
+      <button class="btn btn-secondary" id="downloadBtn">
+        <i class="fas fa-image"></i> 
+        <span id="downloadLabel">Descargar Imagen</span>
+      </button>
+    </div>
+
+    <div class="verse-counter" id="verseCounter">
+      <i class="fas fa-history"></i>
+      <span id="counterText">Versículo único de 200+ disponibles</span>
+    </div>
+
+    <div class="footer-note">
+      <i class="fas fa-feather-alt"></i> 
+      <span id="footerText">Medita · Ora · Reflexiona</span> 
+      <i class="fas fa-feather-alt"></i>
+    </div>
+  </main>
+
+  <!-- Contenedor oculto para generar imagen de descarga -->
+  <div id="downloadContainer" style="position: absolute; left: -9999px;">
+    <div class="verse-card" id="captureCard">
+      <div class="category-tag" id="captureCategoryTag">
+        <i class="fas fa-book-bible"></i> Todos
+      </div>
+      <div class="holy-header">
+        <i class="fas fa-dove"></i>
+        <h1 id="captureTitle">ALIENTO DIVINO</h1>
+        <i class="fas fa-cross"></i>
+      </div>
+      <p class="verse-text" id="captureVerseText"></p>
+      <div class="citation" id="captureCitation"></div>
+      <div class="divider">
+        <span class="divider-line"></span>
+        <i class="fas fa-feather-alt"></i>
+        <span class="divider-line"></span>
+      </div>
+      <div class="footer-note">
+        <i class="fas fa-feather-alt"></i> 
+        <span id="captureFooter">Medita · Ora · Reflexiona</span> 
+        <i class="fas fa-feather-alt"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts al final para mejor rendimiento -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>

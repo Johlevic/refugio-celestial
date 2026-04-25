@@ -1,0 +1,46 @@
+---
+import type { Mood } from "@/lib/domain/types";
+
+interface Props {
+  currentMood: Mood;
+}
+
+const { currentMood } = Astro.props;
+---
+
+<div class="flex items-center" role="group" aria-label="Idioma">
+  <form
+    method="get"
+    class="flex items-center gap-1 rounded-xl border border-gold-500/30 bg-black/40 p-1 shadow-inner ring-1 ring-inset ring-white/5 backdrop-blur-sm sm:gap-1.5 sm:p-1.5"
+    action=""
+  >
+    <input
+      id="refugio-hidden-mood"
+      type="hidden"
+      name="mood"
+      value={currentMood}
+    />
+    <button
+      type="submit"
+      name="lang"
+      value="es"
+      data-lang-btn="es"
+      class="inline-flex min-h-[2.25rem] min-w-[2.35rem] items-center justify-center rounded-lg px-2 text-[10px] font-semibold tracking-wide text-gold-100/90 transition hover:bg-white/5 sm:min-h-9 sm:min-w-[2.5rem] sm:px-2.5 sm:text-xs"
+      title="Español"
+      aria-pressed="false"
+    >
+      ES
+    </button>
+    <button
+      type="submit"
+      name="lang"
+      value="en"
+      data-lang-btn="en"
+      class="inline-flex min-h-[2.25rem] min-w-[2.35rem] items-center justify-center rounded-lg px-2 text-[10px] font-semibold tracking-wide text-gold-100/90 transition hover:bg-white/5 sm:min-h-9 sm:min-w-[2.5rem] sm:px-2.5 sm:text-xs"
+      title="English"
+      aria-pressed="false"
+    >
+      EN
+    </button>
+  </form>
+</div>

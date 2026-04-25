@@ -1,0 +1,57 @@
+---
+const starCount = 72;
+const iconList = [
+  "fa-solid fa-cross",
+  "fa-solid fa-dove",
+  "fa-solid fa-book-bible",
+  "fa-solid fa-hands-praying",
+  "fa-solid fa-church",
+  "fa-solid fa-star",
+  "fa-solid fa-seedling",
+  "fa-solid fa-moon",
+  "fa-solid fa-sun",
+  "fa-solid fa-fish",
+] as const;
+const iconCount = 16;
+const stars = Array.from({ length: starCount }, (_, i) => ({
+  i,
+  w: 1 + (i * 0.7) % 3.5,
+  l: (i * 7.2) % 100,
+  t: (i * 11) % 100,
+  d: (i * 0.2) % 4,
+  du: 2.5 + (i % 5) * 0.6,
+}));
+const icons = Array.from({ length: iconCount }, (_, j) => {
+  const cls = iconList[j % iconList.length]!;
+  return {
+    j,
+    cls,
+    l: 5 + (j * 13) % 88,
+    t: 8 + (j * 7) % 80,
+    fs: 1.2 + (j % 5) * 0.4,
+    d: (j * 0.45) % 5,
+  };
+});
+---
+
+<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+  <div class="celestial-gradient absolute inset-0" />
+  {stars.map((s) => (
+    <div
+      class="star absolute rounded-full bg-gold-200/80 shadow-[0_0_4px_#d4af37] animate-twinkle"
+      style={`left:${s.l}%; top:${s.t}%; width:${s.w}px; height:${s.w}px; animation-delay:${s.d}s; animation-duration:${s.du}s;`}
+    />
+  ))}
+  {icons.map((ic) => (
+    <i
+      class={`${ic.cls} icon-gold absolute text-gold-500/20 animate-float`}
+      style={`left:${ic.l}%; top:${ic.t}%; font-size:${ic.fs}rem; animation-delay:${ic.d}s; animation-duration:7.5s; opacity:0.4;`}
+    />
+  ))}
+</div>
+
+<style>
+  :global(.icon-gold) {
+    filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.35));
+  }
+</style>

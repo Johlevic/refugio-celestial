@@ -1,0 +1,101 @@
+---
+import type { Lang, Mood } from "@/lib/domain/types";
+import { UI } from "@/lib/i18n/labels";
+
+interface Props {
+  currentLang: Lang;
+  currentMood: Mood;
+}
+
+const { currentLang, currentMood } = Astro.props;
+const L = UI[currentLang].mood;
+
+const moods: { id: Mood; icon: string }[] = [
+  { id: "all", icon: "fa-infinity" },
+  { id: "comfort", icon: "fa-dove" },
+  { id: "wisdom", icon: "fa-lightbulb" },
+  { id: "hope", icon: "fa-star" },
+  { id: "love", icon: "fa-heart" },
+  { id: "repentance", icon: "fa-hands-praying" },
+];
+const moodLabel = currentLang === "es" ? "Categoría" : "Mood";
+---
+
+<div class="w-full min-w-0 md:flex md:w-full md:justify-center">
+  <form
+    method="get"
+    action=""
+    class="moodbar-mobile w-full md:hidden"
+    id="refugio-mood-form-m"
+  >
+    <input type="hidden" name="lang" class="refugio-mood-lang" value={currentLang} />
+    <label for="refugio-mood-select" class="sr-only">{moodLabel}</label>
+    <select
+      name="mood"
+      id="refugio-mood-select"
+      onchange="this.form.submit()"
+      class="refugio-mood-select block w-full min-h-[2.875rem] cursor-pointer rounded-xl border border-gold-500/30 bg-black/40 py-2.5 pl-3.5 pr-10 text-left text-sm leading-snug text-gold-100 shadow-inner outline-none ring-1 ring-inset ring-white/5 backdrop-blur-sm transition hover:border-gold-500/45 focus:border-gold-400/50 focus:ring-gold-500/20"
+    >
+      {
+        moods.map((m) => (
+          <option value={m.id} selected={m.id === currentMood}>
+            {L[m.id]}
+          </option>
+        ))
+      }
+    </select>
+  </form>
+
+  <nav
+    class="moodbar-scroll pointer-events-auto hidden min-w-0 overflow-x-auto overflow-y-hidden py-1 [scrollbar-width:thin] md:block md:w-max md:max-w-[min(100vw-8rem,52rem)] md:px-1"
+    aria-label="Categoría de versículo"
+  >
+    <form
+      id="refugio-mood-form-d"
+      method="get"
+      class="mx-auto flex w-max min-w-0 flex-nowrap items-center justify-center gap-1 md:mx-0 md:gap-1.5 lg:gap-2"
+      action=""
+    >
+      <input type="hidden" name="lang" class="refugio-mood-lang" value={currentLang} />
+      {
+        moods.map((m) => (
+          <button
+            type="submit"
+            name="mood"
+            value={m.id}
+            data-mood-btn={m.id}
+            class="mood-pill inline-flex h-9 shrink-0 items-center gap-1 rounded-full border border-white/18 bg-black/15 px-3 text-[11px] font-medium text-gold-100/85 backdrop-blur-sm transition hover:border-gold-500/35 hover:bg-black/25 md:h-9 md:px-3.5 md:text-xs lg:h-10 lg:px-4 lg:text-[13px]"
+          >
+            <i class={`fa-solid ${m.icon} text-[0.7rem] opacity-90 md:text-xs`} aria-hidden="true" />
+            {L[m.id]}
+          </button>
+        ))
+      }
+    </form>
+  </nav>
+</div>
+
+<style is:global>
+  .moodbar-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+  .moodbar-scroll > form {
+    min-width: min-content;
+  }
+  .moodbar-scroll::-webkit-scrollbar {
+    height: 0;
+  }
+  @media (min-width: 768px) {
+    .moodbar-scroll::-webkit-scrollbar {
+      height: 3px;
+    }
+    .moodbar-scroll::-webkit-scrollbar-thumb {
+      border-radius: 9999px;
+      background: rgba(212, 175, 55, 0.28);
+    }
+  }
+  .refugio-mood-select option {
+    background: #0f172a;
+    color: #f3e5ab;
+  }
+</style>
