@@ -69,7 +69,7 @@
       if (localStorage.getItem(KEY_LAST_SENT_DAY) === today) return;
 
       const body = messages[Math.floor(Math.random() * messages.length)] || messages[0];
-      const n = new Notification("Refugio Celestial", {
+      const n = new Notification("BVerses", {
         body,
         icon: "/img/logo-refugio-celestial-best.png",
         badge: "/img/logo-refugio-celestial-best.png",

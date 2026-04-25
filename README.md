@@ -1,10 +1,10 @@
-# Refugio Celestial
+# Versículos Bíblicos
 
 Aplicación web de meditación bíblica con experiencia visual celestial, versículos por categoría, soporte ES/EN, descarga de imagen, notificaciones opcionales y modo PWA.
 
 ## Qué es
 
-`Refugio Celestial` muestra versículos bíblicos aleatorios con enfoque devocional:
+`Versículos Bíblicos` muestra versículos bíblicos aleatorios con enfoque devocional:
 
 - Categorías emocionales/espirituales (`sabiduría`, `consuelo`, `esperanza`, `amor`, etc.).
 - Interfaz bilingüe (español / inglés).
@@ -79,7 +79,7 @@ npm run gen:en
 - **EN:** intenta API remota; si hay fallo de red/API, usa local.
 - La interfaz muestra el estado de conexión en tiempo real en el header.
 
-## PWA
+## PWA (nombre de app)
 
 El proyecto incluye configuración PWA con:
 
@@ -88,6 +88,10 @@ El proyecto incluye configuración PWA con:
 - `registerType: autoUpdate`
 
 Esto permite instalación en dispositivos compatibles y actualización automática de recursos.
+
+Nombre mostrado al instalar la app:
+
+- **BVerses**
 
 ## Desarrollo y despliegue
 

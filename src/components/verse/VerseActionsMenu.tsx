@@ -25,6 +25,9 @@ export function VerseActionsMenu({
 }: Props) {
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState(0);
+  const [showDownloadModal, setShowDownloadModal] = useState(false);
+  const [downloadDone, setDownloadDone] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const [hAlign, setHAlign] = useState<"open-left" | "open-right">("open-left");
@@ -101,7 +104,7 @@ export function VerseActionsMenu({
         const file = new File([blob], "refugio-celestial-versiculo.png", {
           type: "image/png",
         });
-        const data = { files: [file], text: shareText, title: "Refugio Celestial" };
+        const data = { files: [file], text: shareText, title: "BVerses" };
         if (navigator.canShare?.(data)) {
           await navigator.share(data);
           setOpen(false);
@@ -109,7 +112,7 @@ export function VerseActionsMenu({
         }
       }
       if (navigator.share) {
-        await navigator.share({ text: shareText, title: "Refugio Celestial" });
+        await navigator.share({ text: shareText, title: "BVerses" });
       } else {
         await copyVerse();
         showToast(
@@ -135,8 +138,18 @@ export function VerseActionsMenu({
 
   const onDownload = async () => {
     setBusy(true);
+    setShowDownloadModal(true);
+    setDownloadDone(false);
+    setDownloadProgress(1);
+    let success = false;
+    let progressTimer = window.setInterval(() => {
+      setDownloadProgress((p) => (p < 92 ? p + Math.max(1, Math.round((92 - p) * 0.08)) : p));
+    }, 120);
     try {
       const ok = await downloadVerseCaptureById(captureElementId);
+      window.clearInterval(progressTimer);
+      progressTimer = 0;
+      setDownloadProgress(100);
       if (!ok) {
         showToast(
           lang === "es"
@@ -144,9 +157,14 @@ export function VerseActionsMenu({
             : "Could not generate image.",
           "error"
         );
+      } else {
+        setDownloadDone(true);
+        success = true;
       }
       setOpen(false);
     } catch {
+      window.clearInterval(progressTimer);
+      progressTimer = 0;
       showToast(
         lang === "es"
           ? "Falló la descarga de la imagen."
@@ -154,6 +172,12 @@ export function VerseActionsMenu({
         "error"
       );
     } finally {
+      if (progressTimer) window.clearInterval(progressTimer);
+      window.setTimeout(() => {
+        setShowDownloadModal(false);
+        setDownloadDone(false);
+        setDownloadProgress(0);
+      }, success ? 950 : 350);
       setBusy(false);
     }
   };
@@ -247,6 +271,37 @@ export function VerseActionsMenu({
             <i className="fa-solid fa-copy w-4 text-gold-300/90" aria-hidden />
             {t.copy}
           </button>
+        </div>
+      ) : null}
+
+      {showDownloadModal ? (
+        <div className="fixed inset-0 z-[90] flex items-center justify-center bg-black/55 px-4 backdrop-blur-[1px]">
+          <div className="w-full max-w-xs rounded-2xl border border-gold-500/30 bg-[#0f1228]/95 p-4 text-gold-100 shadow-[0_14px_40px_rgba(0,0,0,0.5)]">
+            <p className="text-center text-sm font-semibold">
+              {lang === "es" ? "Descargando imagen..." : "Downloading image..."}
+            </p>
+
+            {!downloadDone ? (
+              <>
+                <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/10">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-gold-400 to-gold-200 transition-all duration-150"
+                    style={{ width: `${Math.max(2, downloadProgress)}%` }}
+                  />
+                </div>
+                <p className="mt-2 text-center text-xs text-gold-200/85">{downloadProgress}%</p>
+              </>
+            ) : (
+              <div className="mt-3 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" aria-hidden>
+                  <path
+                    fill="#06f520"
+                    d="m10.6 13.8l-2.15-2.15q-.275-.275-.7-.275t-.7.275t-.275.7t.275.7L9.9 15.9q.3.3.7.3t.7-.3l5.65-5.65q.275-.275.275-.7t-.275-.7t-.7-.275t-.7.275zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"
+                  />
+                </svg>
+              </div>
+            )}
+          </div>
         </div>
       ) : null}
     </div>

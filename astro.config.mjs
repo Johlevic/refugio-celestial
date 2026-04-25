@@ -18,8 +18,8 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["img/logo-refugio-celestial-best.png"],
       manifest: {
-        name: "Refugio Celestial",
-        short_name: "Refugio",
+        name: "BVerses",
+        short_name: "BVerses",
         description:
           "Meditación bíblica con versículos, categorías y modo offline básico.",
         theme_color: "#0b0f24",

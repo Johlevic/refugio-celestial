@@ -149,7 +149,7 @@ export function VerseCardView({
             />
           </div>
           <div>
-            <div className="mb-2 flex items-center justify-center gap-2 text-gold-400 sm:mb-3 sm:gap-3 md:justify-start">
+            <div className="mb-2 flex items-center justify-center gap-2 text-gold-400 sm:mb-3 sm:gap-3">
               <h2
                 className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-gold-200 sm:text-base md:text-lg max-md:text-[#f7d97e] max-md:[text-shadow:0_0_10px_rgba(212,175,55,0.35)]"
               >
@@ -157,12 +157,12 @@ export function VerseCardView({
               </h2>
             </div>
             <p
-              className="min-h-0 text-center text-base font-normal leading-relaxed text-gold-100/95 sm:text-2xl md:text-left md:leading-[1.45] max-md:px-1 max-md:py-2 max-md:text-[1.05rem] max-md:font-medium max-md:leading-8 max-md:text-[#f8e4ae]"
+              className="min-h-0 text-center text-base font-normal leading-relaxed text-gold-100/95 sm:text-2xl md:leading-[1.45] max-md:px-1 max-md:py-2 max-md:text-[1.05rem] max-md:font-medium max-md:leading-8 max-md:text-[#f8e4ae]"
             >
               “{verse.text}”
             </p>
             <p
-              className="mt-3 text-center font-display text-sm text-gold-500 sm:mt-4 sm:text-base md:text-left max-md:text-[#f2cb5d] max-md:[text-shadow:0_0_8px_rgba(212,175,55,0.25)]"
+              className="mt-3 text-center font-display text-sm text-gold-500 sm:mt-4 sm:text-base max-md:text-[#f2cb5d] max-md:[text-shadow:0_0_8px_rgba(212,175,55,0.25)]"
             >
               {verse.ref} · {testamentLabel}
             </p>
