@@ -153,7 +153,7 @@ export function VerseCardView({
           <div>
             <div className="mb-2 flex items-center justify-center gap-2 text-gold-400 sm:mb-3 sm:gap-3">
               <h2
-                className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-gold-200 sm:text-base md:text-lg max-md:text-[#f7d97e] max-md:[text-shadow:0_0_10px_rgba(212,175,55,0.35)]"
+                className="w-full text-center font-display text-sm font-semibold uppercase tracking-[0.2em] text-gold-200 sm:text-base md:text-lg max-md:text-[#f7d97e] max-md:[text-shadow:0_0_10px_rgba(212,175,55,0.35)]"
               >
                 {titleLine}
               </h2>
