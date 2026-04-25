@@ -1,922 +1,2217 @@
 {
-    "metadata": {
-      "version": "1.0.0",
-      "language": "es",
-      "translation": "Reina-Valera 1960",
-      "total_verses": 5000,
-      "categories": {
-        "sabiduria": "Sabiduría y consejo",
-        "consuelo": "Consuelo y paz",
-        "esperanza": "Esperanza y promesas",
-        "amor": "Amor y compasión",
-        "perdon": "Arrepentimiento y perdón",
-        "fe": "Fe y confianza",
-        "fortaleza": "Fortaleza y ánimo",
-        "alabanza": "Alabanza y gratitud",
-        "justicia": "Justicia y rectitud",
-        "vida_eterna": "Vida eterna y salvación"
-      }
+  "metadata": {
+    "version": "1.0.0",
+    "language": "es",
+    "translation": "Reina-Valera 1960",
+    "total_verses": 200,
+    "categories": {
+      "sabiduria": "Sabiduria y consejo",
+      "consuelo": "Consuelo y paz",
+      "esperanza": "Esperanza y promesas",
+      "amor": "Amor y compasion",
+      "perdon": "Arrepentimiento y perdon"
+    }
+  },
+  "verses": [
+    {
+      "id": 1,
+      "book": "Salmos",
+      "chapter": 1,
+      "verse": 1,
+      "text": "Bienaventurado el varón que no anduvo en consejo de malos, ni estuvo en camino de pecadores, ni en silla de escarnecedores se ha sentado.",
+      "ref": "Salmo 1:1",
+      "categories": [
+        "sabiduria"
+      ]
     },
-    "verses": [
-      {
-        "id": 1,
-        "book": "Salmos",
-        "chapter": 1,
-        "verse": 1,
-        "text": "Bienaventurado el varón que no anduvo en consejo de malos, ni estuvo en camino de pecadores, ni en silla de escarnecedores se ha sentado.",
-        "ref": "Salmo 1:1",
-        "categories": ["sabiduria", "justicia"]
-      },
-      {
-        "id": 2,
-        "book": "Salmos",
-        "chapter": 1,
-        "verse": 2,
-        "text": "Sino que en la ley de Jehová está su delicia, y en su ley medita de día y de noche.",
-        "ref": "Salmo 1:2",
-        "categories": ["sabiduria", "alabanza"]
-      },
-      {
-        "id": 3,
-        "book": "Salmos",
-        "chapter": 1,
-        "verse": 3,
-        "text": "Será como árbol plantado junto a corrientes de aguas, que da su fruto en su tiempo, y su hoja no cae; y todo lo que hace, prosperará.",
-        "ref": "Salmo 1:3",
-        "categories": ["esperanza", "fortaleza"]
-      },
-      {
-        "id": 4,
-        "book": "Salmos",
-        "chapter": 3,
-        "verse": 3,
-        "text": "Mas tú, Jehová, eres escudo alrededor de mí; mi gloria, y el que levanta mi cabeza.",
-        "ref": "Salmo 3:3",
-        "categories": ["fortaleza", "fe"]
-      },
-      {
-        "id": 5,
-        "book": "Salmos",
-        "chapter": 3,
-        "verse": 5,
-        "text": "Yo me acosté y dormí, y desperté, porque Jehová me sustentaba.",
-        "ref": "Salmo 3:5",
-        "categories": ["consuelo", "fe"]
-      },
-      {
-        "id": 6,
-        "book": "Salmos",
-        "chapter": 4,
-        "verse": 3,
-        "text": "Sabed, pues, que Jehová ha escogido al piadoso para sí; Jehová oirá cuando yo a él clamare.",
-        "ref": "Salmo 4:3",
-        "categories": ["fe", "esperanza"]
-      },
-      {
-        "id": 7,
-        "book": "Salmos",
-        "chapter": 4,
-        "verse": 8,
-        "text": "En paz me acostaré, y asimismo dormiré; porque solo tú, Jehová, me haces vivir confiado.",
-        "ref": "Salmo 4:8",
-        "categories": ["consuelo", "paz"]
-      },
-      {
-        "id": 8,
-        "book": "Salmos",
-        "chapter": 5,
-        "verse": 3,
-        "text": "Oh Jehová, de mañana oirás mi voz; de mañana me presentaré delante de ti, y esperaré.",
-        "ref": "Salmo 5:3",
-        "categories": ["fe", "alabanza"]
-      },
-      {
-        "id": 9,
-        "book": "Salmos",
-        "chapter": 5,
-        "verse": 11,
-        "text": "Pero alégrense todos los que en ti confían; den voces de júbilo para siempre, porque tú los defiendes; en ti se regocijen los que aman tu nombre.",
-        "ref": "Salmo 5:11",
-        "categories": ["alabanza", "fe"]
-      },
-      {
-        "id": 10,
-        "book": "Salmos",
-        "chapter": 7,
-        "verse": 10,
-        "text": "Mi escudo está en Dios, que salva a los rectos de corazón.",
-        "ref": "Salmo 7:10",
-        "categories": ["fortaleza", "fe"]
-      },
-      {
-        "id": 11,
-        "book": "Salmos",
-        "chapter": 9,
-        "verse": 9,
-        "text": "Jehová será refugio del pobre, refugio para el tiempo de angustia.",
-        "ref": "Salmo 9:9",
-        "categories": ["consuelo", "fortaleza"]
-      },
-      {
-        "id": 12,
-        "book": "Salmos",
-        "chapter": 9,
-        "verse": 10,
-        "text": "En ti confiarán los que conocen tu nombre, por cuanto tú, oh Jehová, no desamparaste a los que te buscaron.",
-        "ref": "Salmo 9:10",
-        "categories": ["fe", "esperanza"]
-      },
-      {
-        "id": 13,
-        "book": "Salmos",
-        "chapter": 16,
-        "verse": 8,
-        "text": "A Jehová he puesto siempre delante de mí; porque está a mi diestra, no seré conmovido.",
-        "ref": "Salmo 16:8",
-        "categories": ["fe", "fortaleza"]
-      },
-      {
-        "id": 14,
-        "book": "Salmos",
-        "chapter": 18,
-        "verse": 2,
-        "text": "Jehová, roca mía y castillo mío, y mi libertador; Dios mío, fortaleza mía, en él confiaré; mi escudo, y la fuerza de mi salvación, mi alto refugio.",
-        "ref": "Salmo 18:2",
-        "categories": ["fortaleza", "fe"]
-      },
-      {
-        "id": 15,
-        "book": "Salmos",
-        "chapter": 19,
-        "verse": 1,
-        "text": "Los cielos cuentan la gloria de Dios, y el firmamento anuncia la obra de sus manos.",
-        "ref": "Salmo 19:1",
-        "categories": ["alabanza"]
-      },
-      {
-        "id": 16,
-        "book": "Salmos",
-        "chapter": 19,
-        "verse": 14,
-        "text": "Sean gratos los dichos de mi boca y la meditación de mi corazón delante de ti, oh Jehová, roca mía, y redentor mío.",
-        "ref": "Salmo 19:14",
-        "categories": ["alabanza", "sabiduria"]
-      },
-      {
-        "id": 17,
-        "book": "Salmos",
-        "chapter": 23,
-        "verse": 1,
-        "text": "Jehová es mi pastor; nada me faltará.",
-        "ref": "Salmo 23:1",
-        "categories": ["consuelo", "fe"]
-      },
-      {
-        "id": 18,
-        "book": "Salmos",
-        "chapter": 23,
-        "verse": 2,
-        "text": "En lugares de delicados pastos me hará descansar; junto a aguas de reposo me pastoreará.",
-        "ref": "Salmo 23:2",
-        "categories": ["consuelo", "paz"]
-      },
-      {
-        "id": 19,
-        "book": "Salmos",
-        "chapter": 23,
-        "verse": 3,
-        "text": "Confortará mi alma; me guiará por sendas de justicia por amor de su nombre.",
-        "ref": "Salmo 23:3",
-        "categories": ["consuelo", "guia"]
-      },
-      {
-        "id": 20,
-        "book": "Salmos",
-        "chapter": 23,
-        "verse": 4,
-        "text": "Aunque ande en valle de sombra de muerte, no temeré mal alguno, porque tú estarás conmigo; tu vara y tu cayado me infundirán aliento.",
-        "ref": "Salmo 23:4",
-        "categories": ["consuelo", "fortaleza", "fe"]
-      },
-      {
-        "id": 21,
-        "book": "Salmos",
-        "chapter": 23,
-        "verse": 5,
-        "text": "Aderezas mesa delante de mí en presencia de mis angustiadores; unges mi cabeza con aceite; mi copa está rebosando.",
-        "ref": "Salmo 23:5",
-        "categories": ["esperanza", "consuelo"]
-      },
-      {
-        "id": 22,
-        "book": "Salmos",
-        "chapter": 23,
-        "verse": 6,
-        "text": "Ciertamente el bien y la misericordia me seguirán todos los días de mi vida, y en la casa de Jehová moraré por largos días.",
-        "ref": "Salmo 23:6",
-        "categories": ["esperanza", "fe"]
-      },
-      {
-        "id": 23,
-        "book": "Salmos",
-        "chapter": 25,
-        "verse": 4,
-        "text": "Muéstrame, oh Jehová, tus caminos; enséñame tus sendas.",
-        "ref": "Salmo 25:4",
-        "categories": ["sabiduria", "guia"]
-      },
-      {
-        "id": 24,
-        "book": "Salmos",
-        "chapter": 25,
-        "verse": 5,
-        "text": "Encamíname en tu verdad, y enséñame, porque tú eres el Dios de mi salvación; en ti he esperado todo el día.",
-        "ref": "Salmo 25:5",
-        "categories": ["sabiduria", "fe"]
-      },
-      {
-        "id": 25,
-        "book": "Salmos",
-        "chapter": 27,
-        "verse": 1,
-        "text": "Jehová es mi luz y mi salvación; ¿de quién temeré? Jehová es la fortaleza de mi vida; ¿de quién he de atemorizarme?",
-        "ref": "Salmo 27:1",
-        "categories": ["fortaleza", "fe"]
-      },
-      {
-        "id": 26,
-        "book": "Salmos",
-        "chapter": 27,
-        "verse": 4,
-        "text": "Una cosa he demandado a Jehová, ésta buscaré; que esté yo en la casa de Jehová todos los días de mi vida, para contemplar la hermosura de Jehová, y para inquirir en su templo.",
-        "ref": "Salmo 27:4",
-        "categories": ["alabanza", "fe"]
-      },
-      {
-        "id": 27,
-        "book": "Salmos",
-        "chapter": 27,
-        "verse": 14,
-        "text": "Aguarda a Jehová; esfuérzate, y aliéntese tu corazón; sí, espera a Jehová.",
-        "ref": "Salmo 27:14",
-        "categories": ["fortaleza", "esperanza"]
-      },
-      {
-        "id": 28,
-        "book": "Salmos",
-        "chapter": 28,
-        "verse": 7,
-        "text": "Jehová es mi fortaleza y mi escudo; en él confió mi corazón, y fui ayudado, por lo que se gozó mi corazón, y con mi cántico le alabaré.",
-        "ref": "Salmo 28:7",
-        "categories": ["fortaleza", "alabanza"]
-      },
-      {
-        "id": 29,
-        "book": "Salmos",
-        "chapter": 30,
-        "verse": 5,
-        "text": "Porque un momento será su ira, pero su favor dura toda la vida. Por la noche durará el lloro, y a la mañana vendrá la alegría.",
-        "ref": "Salmo 30:5",
-        "categories": ["esperanza", "consuelo"]
-      },
-      {
-        "id": 30,
-        "book": "Salmos",
-        "chapter": 31,
-        "verse": 24,
-        "text": "Esforzaos todos vosotros los que esperáis en Jehová, y tome aliento vuestro corazón.",
-        "ref": "Salmo 31:24",
-        "categories": ["fortaleza", "esperanza"]
-      },
-      {
-        "id": 31,
-        "book": "Salmos",
-        "chapter": 32,
-        "verse": 8,
-        "text": "Te haré entender, y te enseñaré el camino en que debes andar; sobre ti fijaré mis ojos.",
-        "ref": "Salmo 32:8",
-        "categories": ["sabiduria", "guia"]
-      },
-      {
-        "id": 32,
-        "book": "Salmos",
-        "chapter": 34,
-        "verse": 7,
-        "text": "El ángel de Jehová acampa alrededor de los que le temen, y los defiende.",
-        "ref": "Salmo 34:7",
-        "categories": ["fortaleza", "fe"]
-      },
-      {
-        "id": 33,
-        "book": "Salmos",
-        "chapter": 34,
-        "verse": 8,
-        "text": "Gustad, y ved que es bueno Jehová; dichoso el hombre que confía en él.",
-        "ref": "Salmo 34:8",
-        "categories": ["fe", "alabanza"]
-      },
-      {
-        "id": 34,
-        "book": "Salmos",
-        "chapter": 34,
-        "verse": 18,
-        "text": "Cercano está Jehová a los quebrantados de corazón; y salva a los contritos de espíritu.",
-        "ref": "Salmo 34:18",
-        "categories": ["consuelo", "perdon"]
-      },
-      {
-        "id": 35,
-        "book": "Salmos",
-        "chapter": 37,
-        "verse": 4,
-        "text": "Deléitate asimismo en Jehová, y él te concederá las peticiones de tu corazón.",
-        "ref": "Salmo 37:4",
-        "categories": ["fe", "esperanza"]
-      },
-      {
-        "id": 36,
-        "book": "Salmos",
-        "chapter": 37,
-        "verse": 5,
-        "text": "Encomienda a Jehová tu camino, y confía en él; y él hará.",
-        "ref": "Salmo 37:5",
-        "categories": ["fe", "sabiduria"]
-      },
-      {
-        "id": 37,
-        "book": "Salmos",
-        "chapter": 37,
-        "verse": 7,
-        "text": "Guarda silencio ante Jehová, y espera en él. No te alteres con motivo del que prospera en su camino, por el hombre que hace maldades.",
-        "ref": "Salmo 37:7",
-        "categories": ["sabiduria", "paciencia"]
-      },
-      {
-        "id": 38,
-        "book": "Salmos",
-        "chapter": 40,
-        "verse": 1,
-        "text": "Pacientemente esperé a Jehová, y se inclinó a mí, y oyó mi clamor.",
-        "ref": "Salmo 40:1",
-        "categories": ["fe", "esperanza"]
-      },
-      {
-        "id": 39,
-        "book": "Salmos",
-        "chapter": 42,
-        "verse": 1,
-        "text": "Como el ciervo brama por las corrientes de las aguas, así clama por ti, oh Dios, el alma mía.",
-        "ref": "Salmo 42:1",
-        "categories": ["alabanza", "anhelo"]
-      },
-      {
-        "id": 40,
-        "book": "Salmos",
-        "chapter": 46,
-        "verse": 1,
-        "text": "Dios es nuestro amparo y fortaleza, nuestro pronto auxilio en las tribulaciones.",
-        "ref": "Salmo 46:1",
-        "categories": ["fortaleza", "fe"]
-      },
-      {
-        "id": 41,
-        "book": "Salmos",
-        "chapter": 46,
-        "verse": 10,
-        "text": "Estad quietos, y conoced que yo soy Dios; seré exaltado entre las naciones; enaltecido seré en la tierra.",
-        "ref": "Salmo 46:10",
-        "categories": ["sabiduria", "fe"]
-      },
-      {
-        "id": 42,
-        "book": "Salmos",
-        "chapter": 51,
-        "verse": 10,
-        "text": "Crea en mí, oh Dios, un corazón limpio, y renueva un espíritu recto dentro de mí.",
-        "ref": "Salmo 51:10",
-        "categories": ["perdon", "renovacion"]
-      },
-      {
-        "id": 43,
-        "book": "Salmos",
-        "chapter": 55,
-        "verse": 22,
-        "text": "Echa sobre Jehová tu carga, y él te sustentará; no dejará para siempre caído al justo.",
-        "ref": "Salmo 55:22",
-        "categories": ["consuelo", "fe"]
-      },
-      {
-        "id": 44,
-        "book": "Salmos",
-        "chapter": 56,
-        "verse": 3,
-        "text": "En el día que temo, yo en ti confío.",
-        "ref": "Salmo 56:3",
-        "categories": ["fe", "fortaleza"]
-      },
-      {
-        "id": 45,
-        "book": "Salmos",
-        "chapter": 62,
-        "verse": 1,
-        "text": "En Dios solamente está acallada mi alma; de él viene mi salvación.",
-        "ref": "Salmo 62:1",
-        "categories": ["fe", "consuelo"]
-      },
-      {
-        "id": 46,
-        "book": "Salmos",
-        "chapter": 73,
-        "verse": 26,
-        "text": "Mi carne y mi corazón desfallecen; mas la roca de mi corazón y mi porción es Dios para siempre.",
-        "ref": "Salmo 73:26",
-        "categories": ["fortaleza", "fe"]
-      },
-      {
-        "id": 47,
-        "book": "Salmos",
-        "chapter": 84,
-        "verse": 11,
-        "text": "Porque sol y escudo es Jehová Dios; gracia y gloria dará Jehová. No quitará el bien a los que andan en integridad.",
-        "ref": "Salmo 84:11",
-        "categories": ["esperanza", "fe"]
-      },
-      {
-        "id": 48,
-        "book": "Salmos",
-        "chapter": 90,
-        "verse": 12,
-        "text": "Enséñanos de tal modo a contar nuestros días, que traigamos al corazón sabiduría.",
-        "ref": "Salmo 90:12",
-        "categories": ["sabiduria"]
-      },
-      {
-        "id": 49,
-        "book": "Salmos",
-        "chapter": 91,
-        "verse": 1,
-        "text": "El que habita al abrigo del Altísimo morará bajo la sombra del Omnipotente.",
-        "ref": "Salmo 91:1",
-        "categories": ["fe", "fortaleza"]
-      },
-      {
-        "id": 50,
-        "book": "Salmos",
-        "chapter": 91,
-        "verse": 2,
-        "text": "Diré yo a Jehová: Esperanza mía, y castillo mío; mi Dios, en quien confiaré.",
-        "ref": "Salmo 91:2",
-        "categories": ["fe", "fortaleza"]
-      },
-      {
-        "id": 51,
-        "book": "Salmos",
-        "chapter": 103,
-        "verse": 2,
-        "text": "Bendice, alma mía, a Jehová, y no olvides ninguno de sus beneficios.",
-        "ref": "Salmo 103:2",
-        "categories": ["alabanza", "gratitud"]
-      },
-      {
-        "id": 52,
-        "book": "Salmos",
-        "chapter": 103,
-        "verse": 12,
-        "text": "Cuanto está lejos el oriente del occidente, hizo alejar de nosotros nuestras rebeliones.",
-        "ref": "Salmo 103:12",
-        "categories": ["perdon"]
-      },
-      {
-        "id": 53,
-        "book": "Salmos",
-        "chapter": 119,
-        "verse": 105,
-        "text": "Lámpara es a mis pies tu palabra, y lumbrera a mi camino.",
-        "ref": "Salmo 119:105",
-        "categories": ["sabiduria", "guia"]
-      },
-      {
-        "id": 54,
-        "book": "Salmos",
-        "chapter": 121,
-        "verse": 1,
-        "text": "Alzaré mis ojos a los montes; ¿de dónde vendrá mi socorro?",
-        "ref": "Salmo 121:1",
-        "categories": ["fe", "esperanza"]
-      },
-      {
-        "id": 55,
-        "book": "Salmos",
-        "chapter": 121,
-        "verse": 2,
-        "text": "Mi socorro viene de Jehová, que hizo los cielos y la tierra.",
-        "ref": "Salmo 121:2",
-        "categories": ["fe", "fortaleza"]
-      },
-      {
-        "id": 56,
-        "book": "Proverbios",
-        "chapter": 1,
-        "verse": 7,
-        "text": "El principio de la sabiduría es el temor de Jehová; los insensatos desprecian la sabiduría y la enseñanza.",
-        "ref": "Proverbios 1:7",
-        "categories": ["sabiduria"]
-      },
-      {
-        "id": 57,
-        "book": "Proverbios",
-        "chapter": 3,
-        "verse": 5,
-        "text": "Fíate de Jehová de todo tu corazón, y no te apoyes en tu propia prudencia.",
-        "ref": "Proverbios 3:5",
-        "categories": ["sabiduria", "fe"]
-      },
-      {
-        "id": 58,
-        "book": "Proverbios",
-        "chapter": 3,
-        "verse": 6,
-        "text": "Reconócelo en todos tus caminos, y él enderezará tus veredas.",
-        "ref": "Proverbios 3:6",
-        "categories": ["sabiduria", "guia"]
-      },
-      {
-        "id": 59,
-        "book": "Proverbios",
-        "chapter": 4,
-        "verse": 23,
-        "text": "Sobre toda cosa guardada, guarda tu corazón; porque de él mana la vida.",
-        "ref": "Proverbios 4:23",
-        "categories": ["sabiduria"]
-      },
-      {
-        "id": 60,
-        "book": "Proverbios",
-        "chapter": 15,
-        "verse": 1,
-        "text": "La blanda respuesta quita la ira; mas la palabra áspera hace subir el furor.",
-        "ref": "Proverbios 15:1",
-        "categories": ["sabiduria"]
-      },
-      {
-        "id": 61,
-        "book": "Proverbios",
-        "chapter": 16,
-        "verse": 3,
-        "text": "Encomienda a Jehová tus obras, y tus pensamientos serán afirmados.",
-        "ref": "Proverbios 16:3",
-        "categories": ["sabiduria", "fe"]
-      },
-      {
-        "id": 62,
-        "book": "Proverbios",
-        "chapter": 17,
-        "verse": 22,
-        "text": "El corazón alegre constituye buen remedio; mas el espíritu triste seca los huesos.",
-        "ref": "Proverbios 17:22",
-        "categories": ["sabiduria", "consuelo"]
-      },
-      {
-        "id": 63,
-        "book": "Proverbios",
-        "chapter": 18,
-        "verse": 10,
-        "text": "Torre fuerte es el nombre de Jehová; a él correrá el justo, y será levantado.",
-        "ref": "Proverbios 18:10",
-        "categories": ["fortaleza", "fe"]
-      },
-      {
-        "id": 64,
-        "book": "Proverbios",
-        "chapter": 28,
-        "verse": 13,
-        "text": "El que encubre sus pecados no prosperará; mas el que los confiesa y se aparta alcanzará misericordia.",
-        "ref": "Proverbios 28:13",
-        "categories": ["perdon"]
-      },
-      {
-        "id": 65,
-        "book": "Eclesiastés",
-        "chapter": 3,
-        "verse": 1,
-        "text": "Todo tiene su tiempo, y todo lo que se quiere debajo del cielo tiene su hora.",
-        "ref": "Eclesiastés 3:1",
-        "categories": ["sabiduria"]
-      },
-      {
-        "id": 66,
-        "book": "Eclesiastés",
-        "chapter": 3,
-        "verse": 11,
-        "text": "Todo lo hizo hermoso en su tiempo; y ha puesto eternidad en el corazón de ellos, sin que alcance el hombre a entender la obra que ha hecho Dios desde el principio hasta el fin.",
-        "ref": "Eclesiastés 3:11",
-        "categories": ["sabiduria", "reflexion"]
-      },
-      {
-        "id": 67,
-        "book": "Isaías",
-        "chapter": 26,
-        "verse": 3,
-        "text": "Tú guardarás en completa paz a aquel cuyo pensamiento en ti persevera; porque en ti ha confiado.",
-        "ref": "Isaías 26:3",
-        "categories": ["consuelo", "fe"]
-      },
-      {
-        "id": 68,
-        "book": "Isaías",
-        "chapter": 40,
-        "verse": 31,
-        "text": "Pero los que esperan a Jehová tendrán nuevas fuerzas; levantarán alas como las águilas; correrán, y no se cansarán; caminarán, y no se fatigarán.",
-        "ref": "Isaías 40:31",
-        "categories": ["esperanza", "fortaleza"]
-      },
-      {
-        "id": 69,
-        "book": "Isaías",
-        "chapter": 41,
-        "verse": 10,
-        "text": "No temas, porque yo estoy contigo; no desmayes, porque yo soy tu Dios que te esfuerzo; siempre te ayudaré, siempre te sustentaré con la diestra de mi justicia.",
-        "ref": "Isaías 41:10",
-        "categories": ["consuelo", "fortaleza", "fe"]
-      },
-      {
-        "id": 70,
-        "book": "Isaías",
-        "chapter": 55,
-        "verse": 8,
-        "text": "Porque mis pensamientos no son vuestros pensamientos, ni vuestros caminos mis caminos, dijo Jehová.",
-        "ref": "Isaías 55:8",
-        "categories": ["sabiduria"]
-      },
-      {
-        "id": 71,
-        "book": "Jeremías",
-        "chapter": 29,
-        "verse": 11,
-        "text": "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal, para daros el fin que esperáis.",
-        "ref": "Jeremías 29:11",
-        "categories": ["esperanza", "consuelo"]
-      },
-      {
-        "id": 72,
-        "book": "Lamentaciones",
-        "chapter": 3,
-        "verse": 22,
-        "text": "Por la misericordia de Jehová no hemos sido consumidos, porque nunca decayeron sus misericordias.",
-        "ref": "Lamentaciones 3:22",
-        "categories": ["esperanza", "consuelo"]
-      },
-      {
-        "id": 73,
-        "book": "Mateo",
-        "chapter": 5,
-        "verse": 4,
-        "text": "Bienaventurados los que lloran, porque ellos recibirán consolación.",
-        "ref": "Mateo 5:4",
-        "categories": ["consuelo"]
-      },
-      {
-        "id": 74,
-        "book": "Mateo",
-        "chapter": 5,
-        "verse": 6,
-        "text": "Bienaventurados los que tienen hambre y sed de justicia, porque ellos serán saciados.",
-        "ref": "Mateo 5:6",
-        "categories": ["justicia", "esperanza"]
-      },
-      {
-        "id": 75,
-        "book": "Mateo",
-        "chapter": 5,
-        "verse": 8,
-        "text": "Bienaventurados los de limpio corazón, porque ellos verán a Dios.",
-        "ref": "Mateo 5:8",
-        "categories": ["sabiduria", "pureza"]
-      },
-      {
-        "id": 76,
-        "book": "Mateo",
-        "chapter": 6,
-        "verse": 33,
-        "text": "Mas buscad primeramente el reino de Dios y su justicia, y todas estas cosas os serán añadidas.",
-        "ref": "Mateo 6:33",
-        "categories": ["sabiduria", "fe"]
-      },
-      {
-        "id": 77,
-        "book": "Mateo",
-        "chapter": 6,
-        "verse": 34,
-        "text": "Así que, no os afanéis por el día de mañana, porque el día de mañana traerá su afán. Basta a cada día su propio mal.",
-        "ref": "Mateo 6:34",
-        "categories": ["sabiduria", "consuelo"]
-      },
-      {
-        "id": 78,
-        "book": "Mateo",
-        "chapter": 7,
-        "verse": 7,
-        "text": "Pedid, y se os dará; buscad, y hallaréis; llamad, y se os abrirá.",
-        "ref": "Mateo 7:7",
-        "categories": ["fe", "esperanza"]
-      },
-      {
-        "id": 79,
-        "book": "Mateo",
-        "chapter": 11,
-        "verse": 28,
-        "text": "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.",
-        "ref": "Mateo 11:28",
-        "categories": ["consuelo"]
-      },
-      {
-        "id": 80,
-        "book": "Juan",
-        "chapter": 3,
-        "verse": 16,
-        "text": "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.",
-        "ref": "Juan 3:16",
-        "categories": ["amor", "vida_eterna"]
-      },
-      {
-        "id": 81,
-        "book": "Juan",
-        "chapter": 14,
-        "verse": 6,
-        "text": "Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí.",
-        "ref": "Juan 14:6",
-        "categories": ["fe", "salvacion"]
-      },
-      {
-        "id": 82,
-        "book": "Juan",
-        "chapter": 14,
-        "verse": 27,
-        "text": "La paz os dejo, mi paz os doy; yo no os la doy como el mundo la da. No se turbe vuestro corazón, ni tenga miedo.",
-        "ref": "Juan 14:27",
-        "categories": ["consuelo", "paz"]
-      },
-      {
-        "id": 83,
-        "book": "Romanos",
-        "chapter": 5,
-        "verse": 8,
-        "text": "Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros.",
-        "ref": "Romanos 5:8",
-        "categories": ["amor", "salvacion"]
-      },
-      {
-        "id": 84,
-        "book": "Romanos",
-        "chapter": 8,
-        "verse": 28,
-        "text": "Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados.",
-        "ref": "Romanos 8:28",
-        "categories": ["esperanza", "fe"]
-      },
-      {
-        "id": 85,
-        "book": "Romanos",
-        "chapter": 12,
-        "verse": 2,
-        "text": "No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento, para que comprobéis cuál sea la buena voluntad de Dios, agradable y perfecta.",
-        "ref": "Romanos 12:2",
-        "categories": ["sabiduria", "renovacion"]
-      },
-      {
-        "id": 86,
-        "book": "1 Corintios",
-        "chapter": 13,
-        "verse": 4,
-        "text": "El amor es sufrido, es benigno; el amor no tiene envidia, el amor no es jactancioso, no se envanece;",
-        "ref": "1 Corintios 13:4",
-        "categories": ["amor"]
-      },
-      {
-        "id": 87,
-        "book": "1 Corintios",
-        "chapter": 13,
-        "verse": 13,
-        "text": "Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor.",
-        "ref": "1 Corintios 13:13",
-        "categories": ["amor", "fe"]
-      },
-      {
-        "id": 88,
-        "book": "Filipenses",
-        "chapter": 4,
-        "verse": 6,
-        "text": "Por nada estéis afanosos, sino sean conocidas vuestras peticiones delante de Dios en toda oración y ruego, con acción de gracias.",
-        "ref": "Filipenses 4:6",
-        "categories": ["consuelo", "fe"]
-      },
-      {
-        "id": 89,
-        "book": "Filipenses",
-        "chapter": 4,
-        "verse": 7,
-        "text": "Y la paz de Dios, que sobrepasa todo entendimiento, guardará vuestros corazones y vuestros pensamientos en Cristo Jesús.",
-        "ref": "Filipenses 4:7",
-        "categories": ["consuelo", "paz"]
-      },
-      {
-        "id": 90,
-        "book": "Filipenses",
-        "chapter": 4,
-        "verse": 13,
-        "text": "Todo lo puedo en Cristo que me fortalece.",
-        "ref": "Filipenses 4:13",
-        "categories": ["fortaleza", "fe"]
-      },
-      {
-        "id": 91,
-        "book": "Hebreos",
-        "chapter": 11,
-        "verse": 1,
-        "text": "Es, pues, la fe la certeza de lo que se espera, la convicción de lo que no se ve.",
-        "ref": "Hebreos 11:1",
-        "categories": ["fe"]
-      },
-      {
-        "id": 92,
-        "book": "Santiago",
-        "chapter": 1,
-        "verse": 5,
-        "text": "Y si alguno de vosotros tiene falta de sabiduría, pídala a Dios, el cual da a todos abundantemente y sin reproche, y le será dada.",
-        "ref": "Santiago 1:5",
-        "categories": ["sabiduria", "fe"]
-      },
-      {
-        "id": 93,
-        "book": "1 Pedro",
-        "chapter": 5,
-        "verse": 7,
-        "text": "Echando toda vuestra ansiedad sobre él, porque él tiene cuidado de vosotros.",
-        "ref": "1 Pedro 5:7",
-        "categories": ["consuelo", "fe"]
-      },
-      {
-        "id": 94,
-        "book": "1 Juan",
-        "chapter": 1,
-        "verse": 9,
-        "text": "Si confesamos nuestros pecados, él es fiel y justo para perdonar nuestros pecados, y limpiarnos de toda maldad.",
-        "ref": "1 Juan 1:9",
-        "categories": ["perdon"]
-      },
-      {
-        "id": 95,
-        "book": "1 Juan",
-        "chapter": 4,
-        "verse": 18,
-        "text": "En el amor no hay temor, sino que el perfecto amor echa fuera el temor.",
-        "ref": "1 Juan 4:18",
-        "categories": ["amor", "consuelo"]
-      },
-      {
-        "id": 96,
-        "book": "Apocalipsis",
-        "chapter": 21,
-        "verse": 4,
-        "text": "Enjugará Dios toda lágrima de los ojos de ellos; y ya no habrá muerte, ni habrá más llanto, ni clamor, ni dolor; porque las primeras cosas pasaron.",
-        "ref": "Apocalipsis 21:4",
-        "categories": ["esperanza", "consuelo"]
-      },
-      {
-        "id": 97,
-        "book": "Salmos",
-        "chapter": 100,
-        "verse": 4,
-        "text": "Entrad por sus puertas con acción de gracias, por sus atrios con alabanza; alabadle, bendecid su nombre.",
-        "ref": "Salmo 100:4",
-        "categories": ["alabanza", "gratitud"]
-      },
-      {
-        "id": 98,
-        "book": "Salmos",
-        "chapter": 118,
-        "verse": 24,
-        "text": "Este es el día que hizo Jehová; nos gozaremos y alegraremos en él.",
-        "ref": "Salmo 118:24",
-        "categories": ["alabanza"]
-      },
-      {
-        "id": 99,
-        "book": "Salmos",
-        "chapter": 139,
-        "verse": 14,
-        "text": "Te alabaré; porque formidables, maravillosas son tus obras; estoy maravillado, y mi alma lo sabe muy bien.",
-        "ref": "Salmo 139:14",
-        "categories": ["alabanza", "gratitud"]
-      },
-      {
-        "id": 100,
-        "book": "Salmos",
-        "chapter": 145,
-        "verse": 9,
-        "text": "Bueno es Jehová para con todos, y sus misericordias sobre todas sus obras.",
-        "ref": "Salmo 145:9",
-        "categories": ["alabanza", "amor"]
-      }
-    ]
-  }
+    {
+      "id": 2,
+      "book": "Salmos",
+      "chapter": 1,
+      "verse": 2,
+      "text": "Sino que en la ley de Jehová está su delicia, y en su ley medita de día y de noche.",
+      "ref": "Salmo 1:2",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 3,
+      "book": "Salmos",
+      "chapter": 1,
+      "verse": 3,
+      "text": "Será como árbol plantado junto a corrientes de aguas, que da su fruto en su tiempo, y su hoja no cae; y todo lo que hace, prosperará.",
+      "ref": "Salmo 1:3",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 4,
+      "book": "Salmos",
+      "chapter": 3,
+      "verse": 3,
+      "text": "Mas tú, Jehová, eres escudo alrededor de mí; mi gloria, y el que levanta mi cabeza.",
+      "ref": "Salmo 3:3",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 5,
+      "book": "Salmos",
+      "chapter": 3,
+      "verse": 5,
+      "text": "Yo me acosté y dormí, y desperté, porque Jehová me sustentaba.",
+      "ref": "Salmo 3:5",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 6,
+      "book": "Salmos",
+      "chapter": 4,
+      "verse": 3,
+      "text": "Sabed, pues, que Jehová ha escogido al piadoso para sí; Jehová oirá cuando yo a él clamare.",
+      "ref": "Salmo 4:3",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 7,
+      "book": "Salmos",
+      "chapter": 4,
+      "verse": 8,
+      "text": "En paz me acostaré, y asimismo dormiré; porque solo tú, Jehová, me haces vivir confiado.",
+      "ref": "Salmo 4:8",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 8,
+      "book": "Salmos",
+      "chapter": 5,
+      "verse": 3,
+      "text": "Oh Jehová, de mañana oirás mi voz; de mañana me presentaré delante de ti, y esperaré.",
+      "ref": "Salmo 5:3",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 9,
+      "book": "Salmos",
+      "chapter": 5,
+      "verse": 11,
+      "text": "Pero alégrense todos los que en ti confían; den voces de júbilo para siempre, porque tú los defiendes; en ti se regocijen los que aman tu nombre.",
+      "ref": "Salmo 5:11",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 10,
+      "book": "Salmos",
+      "chapter": 7,
+      "verse": 10,
+      "text": "Mi escudo está en Dios, que salva a los rectos de corazón.",
+      "ref": "Salmo 7:10",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 11,
+      "book": "Salmos",
+      "chapter": 9,
+      "verse": 9,
+      "text": "Jehová será refugio del pobre, refugio para el tiempo de angustia.",
+      "ref": "Salmo 9:9",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 12,
+      "book": "Salmos",
+      "chapter": 9,
+      "verse": 10,
+      "text": "En ti confiarán los que conocen tu nombre, por cuanto tú, oh Jehová, no desamparaste a los que te buscaron.",
+      "ref": "Salmo 9:10",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 13,
+      "book": "Salmos",
+      "chapter": 16,
+      "verse": 8,
+      "text": "A Jehová he puesto siempre delante de mí; porque está a mi diestra, no seré conmovido.",
+      "ref": "Salmo 16:8",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 14,
+      "book": "Salmos",
+      "chapter": 18,
+      "verse": 2,
+      "text": "Jehová, roca mía y castillo mío, y mi libertador; Dios mío, fortaleza mía, en él confiaré; mi escudo, y la fuerza de mi salvación, mi alto refugio.",
+      "ref": "Salmo 18:2",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 15,
+      "book": "Salmos",
+      "chapter": 19,
+      "verse": 1,
+      "text": "Los cielos cuentan la gloria de Dios, y el firmamento anuncia la obra de sus manos.",
+      "ref": "Salmo 19:1",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 16,
+      "book": "Salmos",
+      "chapter": 19,
+      "verse": 14,
+      "text": "Sean gratos los dichos de mi boca y la meditación de mi corazón delante de ti, oh Jehová, roca mía, y redentor mío.",
+      "ref": "Salmo 19:14",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 17,
+      "book": "Salmos",
+      "chapter": 23,
+      "verse": 1,
+      "text": "Jehová es mi pastor; nada me faltará.",
+      "ref": "Salmo 23:1",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 18,
+      "book": "Salmos",
+      "chapter": 23,
+      "verse": 2,
+      "text": "En lugares de delicados pastos me hará descansar; junto a aguas de reposo me pastoreará.",
+      "ref": "Salmo 23:2",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 19,
+      "book": "Salmos",
+      "chapter": 23,
+      "verse": 3,
+      "text": "Confortará mi alma; me guiará por sendas de justicia por amor de su nombre.",
+      "ref": "Salmo 23:3",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 20,
+      "book": "Salmos",
+      "chapter": 23,
+      "verse": 4,
+      "text": "Aunque ande en valle de sombra de muerte, no temeré mal alguno, porque tú estarás conmigo; tu vara y tu cayado me infundirán aliento.",
+      "ref": "Salmo 23:4",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 21,
+      "book": "Salmos",
+      "chapter": 23,
+      "verse": 5,
+      "text": "Aderezas mesa delante de mí en presencia de mis angustiadores; unges mi cabeza con aceite; mi copa está rebosando.",
+      "ref": "Salmo 23:5",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 22,
+      "book": "Salmos",
+      "chapter": 23,
+      "verse": 6,
+      "text": "Ciertamente el bien y la misericordia me seguirán todos los días de mi vida, y en la casa de Jehová moraré por largos días.",
+      "ref": "Salmo 23:6",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 23,
+      "book": "Salmos",
+      "chapter": 25,
+      "verse": 4,
+      "text": "Muéstrame, oh Jehová, tus caminos; enséñame tus sendas.",
+      "ref": "Salmo 25:4",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 24,
+      "book": "Salmos",
+      "chapter": 25,
+      "verse": 5,
+      "text": "Encamíname en tu verdad, y enséñame, porque tú eres el Dios de mi salvación; en ti he esperado todo el día.",
+      "ref": "Salmo 25:5",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 25,
+      "book": "Salmos",
+      "chapter": 27,
+      "verse": 1,
+      "text": "Jehová es mi luz y mi salvación; ¿de quién temeré? Jehová es la fortaleza de mi vida; ¿de quién he de atemorizarme?",
+      "ref": "Salmo 27:1",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 26,
+      "book": "Salmos",
+      "chapter": 27,
+      "verse": 4,
+      "text": "Una cosa he demandado a Jehová, ésta buscaré; que esté yo en la casa de Jehová todos los días de mi vida, para contemplar la hermosura de Jehová, y para inquirir en su templo.",
+      "ref": "Salmo 27:4",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 27,
+      "book": "Salmos",
+      "chapter": 27,
+      "verse": 14,
+      "text": "Aguarda a Jehová; esfuérzate, y aliéntese tu corazón; sí, espera a Jehová.",
+      "ref": "Salmo 27:14",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 28,
+      "book": "Salmos",
+      "chapter": 28,
+      "verse": 7,
+      "text": "Jehová es mi fortaleza y mi escudo; en él confió mi corazón, y fui ayudado, por lo que se gozó mi corazón, y con mi cántico le alabaré.",
+      "ref": "Salmo 28:7",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 29,
+      "book": "Salmos",
+      "chapter": 30,
+      "verse": 5,
+      "text": "Porque un momento será su ira, pero su favor dura toda la vida. Por la noche durará el lloro, y a la mañana vendrá la alegría.",
+      "ref": "Salmo 30:5",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 30,
+      "book": "Salmos",
+      "chapter": 31,
+      "verse": 24,
+      "text": "Esforzaos todos vosotros los que esperáis en Jehová, y tome aliento vuestro corazón.",
+      "ref": "Salmo 31:24",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 31,
+      "book": "Salmos",
+      "chapter": 32,
+      "verse": 8,
+      "text": "Te haré entender, y te enseñaré el camino en que debes andar; sobre ti fijaré mis ojos.",
+      "ref": "Salmo 32:8",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 32,
+      "book": "Salmos",
+      "chapter": 34,
+      "verse": 7,
+      "text": "El ángel de Jehová acampa alrededor de los que le temen, y los defiende.",
+      "ref": "Salmo 34:7",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 33,
+      "book": "Salmos",
+      "chapter": 34,
+      "verse": 8,
+      "text": "Gustad, y ved que es bueno Jehová; dichoso el hombre que confía en él.",
+      "ref": "Salmo 34:8",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 34,
+      "book": "Salmos",
+      "chapter": 34,
+      "verse": 18,
+      "text": "Cercano está Jehová a los quebrantados de corazón; y salva a los contritos de espíritu.",
+      "ref": "Salmo 34:18",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 35,
+      "book": "Salmos",
+      "chapter": 37,
+      "verse": 4,
+      "text": "Deléitate asimismo en Jehová, y él te concederá las peticiones de tu corazón.",
+      "ref": "Salmo 37:4",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 36,
+      "book": "Salmos",
+      "chapter": 37,
+      "verse": 5,
+      "text": "Encomienda a Jehová tu camino, y confía en él; y él hará.",
+      "ref": "Salmo 37:5",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 37,
+      "book": "Salmos",
+      "chapter": 37,
+      "verse": 7,
+      "text": "Guarda silencio ante Jehová, y espera en él. No te alteres con motivo del que prospera en su camino, por el hombre que hace maldades.",
+      "ref": "Salmo 37:7",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 38,
+      "book": "Salmos",
+      "chapter": 40,
+      "verse": 1,
+      "text": "Pacientemente esperé a Jehová, y se inclinó a mí, y oyó mi clamor.",
+      "ref": "Salmo 40:1",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 39,
+      "book": "Salmos",
+      "chapter": 42,
+      "verse": 1,
+      "text": "Como el ciervo brama por las corrientes de las aguas, así clama por ti, oh Dios, el alma mía.",
+      "ref": "Salmo 42:1",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 40,
+      "book": "Salmos",
+      "chapter": 46,
+      "verse": 1,
+      "text": "Dios es nuestro amparo y fortaleza, nuestro pronto auxilio en las tribulaciones.",
+      "ref": "Salmo 46:1",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 41,
+      "book": "Salmos",
+      "chapter": 46,
+      "verse": 10,
+      "text": "Estad quietos, y conoced que yo soy Dios; seré exaltado entre las naciones; enaltecido seré en la tierra.",
+      "ref": "Salmo 46:10",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 42,
+      "book": "Salmos",
+      "chapter": 51,
+      "verse": 10,
+      "text": "Crea en mí, oh Dios, un corazón limpio, y renueva un espíritu recto dentro de mí.",
+      "ref": "Salmo 51:10",
+      "categories": [
+        "perdon"
+      ]
+    },
+    {
+      "id": 43,
+      "book": "Salmos",
+      "chapter": 55,
+      "verse": 22,
+      "text": "Echa sobre Jehová tu carga, y él te sustentará; no dejará para siempre caído al justo.",
+      "ref": "Salmo 55:22",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 44,
+      "book": "Salmos",
+      "chapter": 56,
+      "verse": 3,
+      "text": "En el día que temo, yo en ti confío.",
+      "ref": "Salmo 56:3",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 45,
+      "book": "Salmos",
+      "chapter": 62,
+      "verse": 1,
+      "text": "En Dios solamente está acallada mi alma; de él viene mi salvación.",
+      "ref": "Salmo 62:1",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 46,
+      "book": "Salmos",
+      "chapter": 73,
+      "verse": 26,
+      "text": "Mi carne y mi corazón desfallecen; mas la roca de mi corazón y mi porción es Dios para siempre.",
+      "ref": "Salmo 73:26",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 47,
+      "book": "Salmos",
+      "chapter": 84,
+      "verse": 11,
+      "text": "Porque sol y escudo es Jehová Dios; gracia y gloria dará Jehová. No quitará el bien a los que andan en integridad.",
+      "ref": "Salmo 84:11",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 48,
+      "book": "Salmos",
+      "chapter": 90,
+      "verse": 12,
+      "text": "Enséñanos de tal modo a contar nuestros días, que traigamos al corazón sabiduría.",
+      "ref": "Salmo 90:12",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 49,
+      "book": "Salmos",
+      "chapter": 91,
+      "verse": 1,
+      "text": "El que habita al abrigo del Altísimo morará bajo la sombra del Omnipotente.",
+      "ref": "Salmo 91:1",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 50,
+      "book": "Salmos",
+      "chapter": 91,
+      "verse": 2,
+      "text": "Diré yo a Jehová: Esperanza mía, y castillo mío; mi Dios, en quien confiaré.",
+      "ref": "Salmo 91:2",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 51,
+      "book": "Salmos",
+      "chapter": 103,
+      "verse": 2,
+      "text": "Bendice, alma mía, a Jehová, y no olvides ninguno de sus beneficios.",
+      "ref": "Salmo 103:2",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 52,
+      "book": "Salmos",
+      "chapter": 103,
+      "verse": 12,
+      "text": "Cuanto está lejos el oriente del occidente, hizo alejar de nosotros nuestras rebeliones.",
+      "ref": "Salmo 103:12",
+      "categories": [
+        "perdon"
+      ]
+    },
+    {
+      "id": 53,
+      "book": "Salmos",
+      "chapter": 119,
+      "verse": 105,
+      "text": "Lámpara es a mis pies tu palabra, y lumbrera a mi camino.",
+      "ref": "Salmo 119:105",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 54,
+      "book": "Salmos",
+      "chapter": 121,
+      "verse": 1,
+      "text": "Alzaré mis ojos a los montes; ¿de dónde vendrá mi socorro?",
+      "ref": "Salmo 121:1",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 55,
+      "book": "Salmos",
+      "chapter": 121,
+      "verse": 2,
+      "text": "Mi socorro viene de Jehová, que hizo los cielos y la tierra.",
+      "ref": "Salmo 121:2",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 56,
+      "book": "Proverbios",
+      "chapter": 1,
+      "verse": 7,
+      "text": "El principio de la sabiduría es el temor de Jehová; los insensatos desprecian la sabiduría y la enseñanza.",
+      "ref": "Proverbios 1:7",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 57,
+      "book": "Proverbios",
+      "chapter": 3,
+      "verse": 5,
+      "text": "Fíate de Jehová de todo tu corazón, y no te apoyes en tu propia prudencia.",
+      "ref": "Proverbios 3:5",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 58,
+      "book": "Proverbios",
+      "chapter": 3,
+      "verse": 6,
+      "text": "Reconócelo en todos tus caminos, y él enderezará tus veredas.",
+      "ref": "Proverbios 3:6",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 59,
+      "book": "Proverbios",
+      "chapter": 4,
+      "verse": 23,
+      "text": "Sobre toda cosa guardada, guarda tu corazón; porque de él mana la vida.",
+      "ref": "Proverbios 4:23",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 60,
+      "book": "Proverbios",
+      "chapter": 15,
+      "verse": 1,
+      "text": "La blanda respuesta quita la ira; mas la palabra áspera hace subir el furor.",
+      "ref": "Proverbios 15:1",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 61,
+      "book": "Proverbios",
+      "chapter": 16,
+      "verse": 3,
+      "text": "Encomienda a Jehová tus obras, y tus pensamientos serán afirmados.",
+      "ref": "Proverbios 16:3",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 62,
+      "book": "Proverbios",
+      "chapter": 17,
+      "verse": 22,
+      "text": "El corazón alegre constituye buen remedio; mas el espíritu triste seca los huesos.",
+      "ref": "Proverbios 17:22",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 63,
+      "book": "Proverbios",
+      "chapter": 18,
+      "verse": 10,
+      "text": "Torre fuerte es el nombre de Jehová; a él correrá el justo, y será levantado.",
+      "ref": "Proverbios 18:10",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 64,
+      "book": "Proverbios",
+      "chapter": 28,
+      "verse": 13,
+      "text": "El que encubre sus pecados no prosperará; mas el que los confiesa y se aparta alcanzará misericordia.",
+      "ref": "Proverbios 28:13",
+      "categories": [
+        "perdon"
+      ]
+    },
+    {
+      "id": 65,
+      "book": "Eclesiastés",
+      "chapter": 3,
+      "verse": 1,
+      "text": "Todo tiene su tiempo, y todo lo que se quiere debajo del cielo tiene su hora.",
+      "ref": "Eclesiastés 3:1",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 66,
+      "book": "Eclesiastés",
+      "chapter": 3,
+      "verse": 11,
+      "text": "Todo lo hizo hermoso en su tiempo; y ha puesto eternidad en el corazón de ellos, sin que alcance el hombre a entender la obra que ha hecho Dios desde el principio hasta el fin.",
+      "ref": "Eclesiastés 3:11",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 67,
+      "book": "Isaías",
+      "chapter": 26,
+      "verse": 3,
+      "text": "Tú guardarás en completa paz a aquel cuyo pensamiento en ti persevera; porque en ti ha confiado.",
+      "ref": "Isaías 26:3",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 68,
+      "book": "Isaías",
+      "chapter": 40,
+      "verse": 31,
+      "text": "Pero los que esperan a Jehová tendrán nuevas fuerzas; levantarán alas como las águilas; correrán, y no se cansarán; caminarán, y no se fatigarán.",
+      "ref": "Isaías 40:31",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 69,
+      "book": "Isaías",
+      "chapter": 41,
+      "verse": 10,
+      "text": "No temas, porque yo estoy contigo; no desmayes, porque yo soy tu Dios que te esfuerzo; siempre te ayudaré, siempre te sustentaré con la diestra de mi justicia.",
+      "ref": "Isaías 41:10",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 70,
+      "book": "Isaías",
+      "chapter": 55,
+      "verse": 8,
+      "text": "Porque mis pensamientos no son vuestros pensamientos, ni vuestros caminos mis caminos, dijo Jehová.",
+      "ref": "Isaías 55:8",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 71,
+      "book": "Jeremías",
+      "chapter": 29,
+      "verse": 11,
+      "text": "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal, para daros el fin que esperáis.",
+      "ref": "Jeremías 29:11",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 72,
+      "book": "Lamentaciones",
+      "chapter": 3,
+      "verse": 22,
+      "text": "Por la misericordia de Jehová no hemos sido consumidos, porque nunca decayeron sus misericordias.",
+      "ref": "Lamentaciones 3:22",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 73,
+      "book": "Mateo",
+      "chapter": 5,
+      "verse": 4,
+      "text": "Bienaventurados los que lloran, porque ellos recibirán consolación.",
+      "ref": "Mateo 5:4",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 74,
+      "book": "Mateo",
+      "chapter": 5,
+      "verse": 6,
+      "text": "Bienaventurados los que tienen hambre y sed de justicia, porque ellos serán saciados.",
+      "ref": "Mateo 5:6",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 75,
+      "book": "Mateo",
+      "chapter": 5,
+      "verse": 8,
+      "text": "Bienaventurados los de limpio corazón, porque ellos verán a Dios.",
+      "ref": "Mateo 5:8",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 76,
+      "book": "Mateo",
+      "chapter": 6,
+      "verse": 33,
+      "text": "Mas buscad primeramente el reino de Dios y su justicia, y todas estas cosas os serán añadidas.",
+      "ref": "Mateo 6:33",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 77,
+      "book": "Mateo",
+      "chapter": 6,
+      "verse": 34,
+      "text": "Así que, no os afanéis por el día de mañana, porque el día de mañana traerá su afán. Basta a cada día su propio mal.",
+      "ref": "Mateo 6:34",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 78,
+      "book": "Mateo",
+      "chapter": 7,
+      "verse": 7,
+      "text": "Pedid, y se os dará; buscad, y hallaréis; llamad, y se os abrirá.",
+      "ref": "Mateo 7:7",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 79,
+      "book": "Mateo",
+      "chapter": 11,
+      "verse": 28,
+      "text": "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.",
+      "ref": "Mateo 11:28",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 80,
+      "book": "Juan",
+      "chapter": 3,
+      "verse": 16,
+      "text": "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.",
+      "ref": "Juan 3:16",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 81,
+      "book": "Juan",
+      "chapter": 14,
+      "verse": 6,
+      "text": "Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí.",
+      "ref": "Juan 14:6",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 82,
+      "book": "Juan",
+      "chapter": 14,
+      "verse": 27,
+      "text": "La paz os dejo, mi paz os doy; yo no os la doy como el mundo la da. No se turbe vuestro corazón, ni tenga miedo.",
+      "ref": "Juan 14:27",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 83,
+      "book": "Romanos",
+      "chapter": 5,
+      "verse": 8,
+      "text": "Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros.",
+      "ref": "Romanos 5:8",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 84,
+      "book": "Romanos",
+      "chapter": 8,
+      "verse": 28,
+      "text": "Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados.",
+      "ref": "Romanos 8:28",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 85,
+      "book": "Romanos",
+      "chapter": 12,
+      "verse": 2,
+      "text": "No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento, para que comprobéis cuál sea la buena voluntad de Dios, agradable y perfecta.",
+      "ref": "Romanos 12:2",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 86,
+      "book": "1 Corintios",
+      "chapter": 13,
+      "verse": 4,
+      "text": "El amor es sufrido, es benigno; el amor no tiene envidia, el amor no es jactancioso, no se envanece;",
+      "ref": "1 Corintios 13:4",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 87,
+      "book": "1 Corintios",
+      "chapter": 13,
+      "verse": 13,
+      "text": "Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor.",
+      "ref": "1 Corintios 13:13",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 88,
+      "book": "Filipenses",
+      "chapter": 4,
+      "verse": 6,
+      "text": "Por nada estéis afanosos, sino sean conocidas vuestras peticiones delante de Dios en toda oración y ruego, con acción de gracias.",
+      "ref": "Filipenses 4:6",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 89,
+      "book": "Filipenses",
+      "chapter": 4,
+      "verse": 7,
+      "text": "Y la paz de Dios, que sobrepasa todo entendimiento, guardará vuestros corazones y vuestros pensamientos en Cristo Jesús.",
+      "ref": "Filipenses 4:7",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 90,
+      "book": "Filipenses",
+      "chapter": 4,
+      "verse": 13,
+      "text": "Todo lo puedo en Cristo que me fortalece.",
+      "ref": "Filipenses 4:13",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 91,
+      "book": "Hebreos",
+      "chapter": 11,
+      "verse": 1,
+      "text": "Es, pues, la fe la certeza de lo que se espera, la convicción de lo que no se ve.",
+      "ref": "Hebreos 11:1",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 92,
+      "book": "Santiago",
+      "chapter": 1,
+      "verse": 5,
+      "text": "Y si alguno de vosotros tiene falta de sabiduría, pídala a Dios, el cual da a todos abundantemente y sin reproche, y le será dada.",
+      "ref": "Santiago 1:5",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 93,
+      "book": "1 Pedro",
+      "chapter": 5,
+      "verse": 7,
+      "text": "Echando toda vuestra ansiedad sobre él, porque él tiene cuidado de vosotros.",
+      "ref": "1 Pedro 5:7",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 94,
+      "book": "1 Juan",
+      "chapter": 1,
+      "verse": 9,
+      "text": "Si confesamos nuestros pecados, él es fiel y justo para perdonar nuestros pecados, y limpiarnos de toda maldad.",
+      "ref": "1 Juan 1:9",
+      "categories": [
+        "perdon"
+      ]
+    },
+    {
+      "id": 95,
+      "book": "1 Juan",
+      "chapter": 4,
+      "verse": 18,
+      "text": "En el amor no hay temor, sino que el perfecto amor echa fuera el temor.",
+      "ref": "1 Juan 4:18",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 96,
+      "book": "Apocalipsis",
+      "chapter": 21,
+      "verse": 4,
+      "text": "Enjugará Dios toda lágrima de los ojos de ellos; y ya no habrá muerte, ni habrá más llanto, ni clamor, ni dolor; porque las primeras cosas pasaron.",
+      "ref": "Apocalipsis 21:4",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 97,
+      "book": "Salmos",
+      "chapter": 100,
+      "verse": 4,
+      "text": "Entrad por sus puertas con acción de gracias, por sus atrios con alabanza; alabadle, bendecid su nombre.",
+      "ref": "Salmo 100:4",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 98,
+      "book": "Salmos",
+      "chapter": 118,
+      "verse": 24,
+      "text": "Este es el día que hizo Jehová; nos gozaremos y alegraremos en él.",
+      "ref": "Salmo 118:24",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 99,
+      "book": "Salmos",
+      "chapter": 139,
+      "verse": 14,
+      "text": "Te alabaré; porque formidables, maravillosas son tus obras; estoy maravillado, y mi alma lo sabe muy bien.",
+      "ref": "Salmo 139:14",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 100,
+      "book": "Salmos",
+      "chapter": 145,
+      "verse": 9,
+      "text": "Bueno es Jehová para con todos, y sus misericordias sobre todas sus obras.",
+      "ref": "Salmo 145:9",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 101,
+      "book": "Salmos",
+      "chapter": 8,
+      "verse": 1,
+      "text": "¡Oh Jehová, Señor nuestro, cuán glorioso es tu nombre en toda la tierra! Has puesto tu gloria sobre los cielos.",
+      "ref": "Salmo 8:1",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 102,
+      "book": "Salmos",
+      "chapter": 12,
+      "verse": 6,
+      "text": "Las palabras de Jehová son palabras limpias, como plata refinada en horno de tierra, purificada siete veces.",
+      "ref": "Salmo 12:6",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 103,
+      "book": "Salmos",
+      "chapter": 16,
+      "verse": 11,
+      "text": "Me mostrarás la senda de la vida; en tu presencia hay plenitud de gozo; delicias a tu diestra para siempre.",
+      "ref": "Salmo 16:11",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 104,
+      "book": "Salmos",
+      "chapter": 20,
+      "verse": 7,
+      "text": "Estos confían en carros, y aquellos en caballos; mas nosotros del nombre de Jehová nuestro Dios tendremos memoria.",
+      "ref": "Salmo 20:7",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 105,
+      "book": "Salmos",
+      "chapter": 22,
+      "verse": 26,
+      "text": "Comerán los humildes, y serán saciados; alabarán a Jehová los que le buscan; vivirá vuestro corazón para siempre.",
+      "ref": "Salmo 22:26",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 106,
+      "book": "Salmos",
+      "chapter": 24,
+      "verse": 1,
+      "text": "De Jehová es la tierra y su plenitud; el mundo, y los que en él habitan.",
+      "ref": "Salmo 24:1",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 107,
+      "book": "Salmos",
+      "chapter": 29,
+      "verse": 11,
+      "text": "Jehová dará poder a su pueblo; Jehová bendecirá a su pueblo con paz.",
+      "ref": "Salmo 29:11",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 108,
+      "book": "Salmos",
+      "chapter": 31,
+      "verse": 5,
+      "text": "En tu mano encomiendo mi espíritu; tú me has redimido, oh Jehová, Dios de verdad.",
+      "ref": "Salmo 31:5",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 109,
+      "book": "Salmos",
+      "chapter": 33,
+      "verse": 4,
+      "text": "Porque recta es la palabra de Jehová, y toda su obra es hecha con fidelidad.",
+      "ref": "Salmo 33:4",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 110,
+      "book": "Salmos",
+      "chapter": 36,
+      "verse": 9,
+      "text": "Porque contigo está el manantial de la vida; en tu luz veremos la luz.",
+      "ref": "Salmo 36:9",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 111,
+      "book": "Salmos",
+      "chapter": 37,
+      "verse": 23,
+      "text": "Por Jehová son ordenados los pasos del hombre, y él aprueba su camino.",
+      "ref": "Salmo 37:23",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 112,
+      "book": "Salmos",
+      "chapter": 40,
+      "verse": 3,
+      "text": "Puso luego en mi boca cántico nuevo, alabanza a nuestro Dios. Verán esto muchos, y temerán, y confiarán en Jehová.",
+      "ref": "Salmo 40:3",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 113,
+      "book": "Salmos",
+      "chapter": 43,
+      "verse": 5,
+      "text": "¿Por qué te abates, oh alma mía, y por qué te turbas dentro de mí? Espera en Dios; porque aún he de alabarle, salvación mía y Dios mío.",
+      "ref": "Salmo 43:5",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 114,
+      "book": "Salmos",
+      "chapter": 47,
+      "verse": 7,
+      "text": "Porque Dios es el Rey de toda la tierra; cantad con inteligencia.",
+      "ref": "Salmo 47:7",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 115,
+      "book": "Salmos",
+      "chapter": 50,
+      "verse": 15,
+      "text": "E invócame en el día de la angustia; te libraré, y tú me honrarás.",
+      "ref": "Salmo 50:15",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 116,
+      "book": "Salmos",
+      "chapter": 54,
+      "verse": 4,
+      "text": "He aquí, Dios es el que me ayuda; el Señor está con los que sostienen mi vida.",
+      "ref": "Salmo 54:4",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 117,
+      "book": "Salmos",
+      "chapter": 57,
+      "verse": 10,
+      "text": "Porque grande es hasta los cielos tu misericordia, y hasta las nubes tu verdad.",
+      "ref": "Salmo 57:10",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 118,
+      "book": "Salmos",
+      "chapter": 59,
+      "verse": 16,
+      "text": "Mas yo cantaré de tu poder, y alabaré de mañana tu misericordia; porque has sido mi amparo y refugio en el día de mi angustia.",
+      "ref": "Salmo 59:16",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 119,
+      "book": "Salmos",
+      "chapter": 63,
+      "verse": 1,
+      "text": "Dios, Dios mío eres tú; de madrugada te buscaré; mi alma tiene sed de ti, mi carne te anhela, en tierra seca y árida donde no hay aguas.",
+      "ref": "Salmo 63:1",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 120,
+      "book": "Salmos",
+      "chapter": 65,
+      "verse": 5,
+      "text": "Con tremendas cosas nos responderás tú en justicia, oh Dios de nuestra salvación, esperanza de todos los términos de la tierra, y de los más lejanos mares.",
+      "ref": "Salmo 65:5",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 121,
+      "book": "Salmos",
+      "chapter": 68,
+      "verse": 19,
+      "text": "Bendito sea el Señor; cada día nos colma de bienes el Dios de nuestra salvación.",
+      "ref": "Salmo 68:19",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 122,
+      "book": "Salmos",
+      "chapter": 71,
+      "verse": 5,
+      "text": "Porque tú, oh Señor Jehová, eres mi esperanza, seguridad mía desde mi juventud.",
+      "ref": "Salmo 71:5",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 123,
+      "book": "Salmos",
+      "chapter": 77,
+      "verse": 14,
+      "text": "Tú eres el Dios que hace maravillas; hiciste notorio tu poder entre los pueblos.",
+      "ref": "Salmo 77:14",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 124,
+      "book": "Salmos",
+      "chapter": 85,
+      "verse": 10,
+      "text": "La misericordia y la verdad se encontraron; la justicia y la paz se besaron.",
+      "ref": "Salmo 85:10",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 125,
+      "book": "Salmos",
+      "chapter": 86,
+      "verse": 5,
+      "text": "Porque tú, Señor, eres bueno y perdonador, y grande en misericordia para con todos los que te invocan.",
+      "ref": "Salmo 86:5",
+      "categories": [
+        "perdon"
+      ]
+    },
+    {
+      "id": 126,
+      "book": "Salmos",
+      "chapter": 89,
+      "verse": 1,
+      "text": "Las misericordias de Jehová cantaré perpetuamente; de generación en generación haré notoria tu fidelidad con mi boca.",
+      "ref": "Salmo 89:1",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 127,
+      "book": "Salmos",
+      "chapter": 92,
+      "verse": 2,
+      "text": "Anunciar por la mañana tu misericordia, y tu fidelidad cada noche.",
+      "ref": "Salmo 92:2",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 128,
+      "book": "Salmos",
+      "chapter": 94,
+      "verse": 19,
+      "text": "En la multitud de mis pensamientos dentro de mí, tus consolaciones alegraban mi alma.",
+      "ref": "Salmo 94:19",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 129,
+      "book": "Salmos",
+      "chapter": 95,
+      "verse": 2,
+      "text": "Lleguemos ante su presencia con alabanza, aclamémosle con cánticos.",
+      "ref": "Salmo 95:2",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 130,
+      "book": "Salmos",
+      "chapter": 96,
+      "verse": 1,
+      "text": "Cantad a Jehová cántico nuevo; cantad a Jehová, toda la tierra.",
+      "ref": "Salmo 96:1",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 131,
+      "book": "Salmos",
+      "chapter": 97,
+      "verse": 11,
+      "text": "Luz está sembrada para el justo, y alegría para los rectos de corazón.",
+      "ref": "Salmo 97:11",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 132,
+      "book": "Salmos",
+      "chapter": 102,
+      "verse": 17,
+      "text": "Habrá considerado la oración de los desvalidos, y no habrá despreciado la petición de ellos.",
+      "ref": "Salmo 102:17",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 133,
+      "book": "Salmos",
+      "chapter": 104,
+      "verse": 24,
+      "text": "¡Cuán numerosas son tus obras, oh Jehová! Hiciste todas ellas con sabiduría; llena está la tierra de tus beneficios.",
+      "ref": "Salmo 104:24",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 134,
+      "book": "Salmos",
+      "chapter": 106,
+      "verse": 1,
+      "text": "Aleluya. Alabad a Jehová, porque él es bueno; porque para siempre es su misericordia.",
+      "ref": "Salmo 106:1",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 135,
+      "book": "Salmos",
+      "chapter": 107,
+      "verse": 1,
+      "text": "Alabad a Jehová, porque él es bueno; porque para siempre es su misericordia.",
+      "ref": "Salmo 107:1",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 136,
+      "book": "Salmos",
+      "chapter": 111,
+      "verse": 10,
+      "text": "El principio de la sabiduría es el temor de Jehová; buen entendimiento tienen todos los que practican sus mandamientos; su alabanza permanece para siempre.",
+      "ref": "Salmo 111:10",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 137,
+      "book": "Salmos",
+      "chapter": 115,
+      "verse": 1,
+      "text": "No a nosotros, oh Jehová, no a nosotros, sino a tu nombre da gloria, por tu misericordia, por tu verdad.",
+      "ref": "Salmo 115:1",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 138,
+      "book": "Salmos",
+      "chapter": 116,
+      "verse": 2,
+      "text": "Porque ha inclinado a mí su oído; por tanto, le invocaré en todos mis días.",
+      "ref": "Salmo 116:2",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 139,
+      "book": "Salmos",
+      "chapter": 119,
+      "verse": 11,
+      "text": "En mi corazón he guardado tus dichos, para no pecar contra ti.",
+      "ref": "Salmo 119:11",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 140,
+      "book": "Salmos",
+      "chapter": 122,
+      "verse": 1,
+      "text": "Yo me alegré con los que me decían: A la casa de Jehová iremos.",
+      "ref": "Salmo 122:1",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 141,
+      "book": "Salmos",
+      "chapter": 126,
+      "verse": 5,
+      "text": "Los que sembraron con lágrimas, con regocijo segarán.",
+      "ref": "Salmo 126:5",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 142,
+      "book": "Salmos",
+      "chapter": 127,
+      "verse": 1,
+      "text": "Si Jehová no edificare la casa, en vano trabajan los que la edifican; si Jehová no guardare la ciudad, en vano vela la guardia.",
+      "ref": "Salmo 127:1",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 143,
+      "book": "Salmos",
+      "chapter": 128,
+      "verse": 1,
+      "text": "Bienaventurado todo aquel que teme a Jehová, que anda en sus caminos.",
+      "ref": "Salmo 128:1",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 144,
+      "book": "Salmos",
+      "chapter": 130,
+      "verse": 4,
+      "text": "Pero contigo está el perdón, para que seas reverenciado.",
+      "ref": "Salmo 130:4",
+      "categories": [
+        "perdon"
+      ]
+    },
+    {
+      "id": 145,
+      "book": "Salmos",
+      "chapter": 134,
+      "verse": 1,
+      "text": "¡Mirad, bendecid a Jehová, vosotros todos los siervos de Jehová, los que en la casa de Jehová estáis por las noches!",
+      "ref": "Salmo 134:1",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 146,
+      "book": "Salmos",
+      "chapter": 136,
+      "verse": 26,
+      "text": "Alabad al Dios de los cielos, porque para siempre es su misericordia.",
+      "ref": "Salmo 136:26",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 147,
+      "book": "Salmos",
+      "chapter": 138,
+      "verse": 3,
+      "text": "El día que clamé, me respondiste; me fortaleciste con vigor en el alma.",
+      "ref": "Salmo 138:3",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 148,
+      "book": "Salmos",
+      "chapter": 140,
+      "verse": 12,
+      "text": "Yo sé que Jehová sostendrá la causa del afligido, y el derecho de los necesitados.",
+      "ref": "Salmo 140:12",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 149,
+      "book": "Salmos",
+      "chapter": 141,
+      "verse": 3,
+      "text": "Pon guarda a mi boca, oh Jehová; vigila la puerta de mis labios.",
+      "ref": "Salmo 141:3",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 150,
+      "book": "Salmos",
+      "chapter": 143,
+      "verse": 10,
+      "text": "Enséñame a hacer tu voluntad, porque tú eres mi Dios; tu buen espíritu me guíe a tierra de rectitud.",
+      "ref": "Salmo 143:10",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 151,
+      "book": "Salmos",
+      "chapter": 144,
+      "verse": 15,
+      "text": "Bienaventurado el pueblo que tiene esto; bienaventurado el pueblo cuyo Dios es Jehová.",
+      "ref": "Salmo 144:15",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 152,
+      "book": "Salmos",
+      "chapter": 146,
+      "verse": 2,
+      "text": "Alabaré a Jehová en mi vida; cantaré salmos a mi Dios mientras viva.",
+      "ref": "Salmo 146:2",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 153,
+      "book": "Salmos",
+      "chapter": 147,
+      "verse": 3,
+      "text": "Sana a los quebrantados de corazón, y venda sus heridas.",
+      "ref": "Salmo 147:3",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 154,
+      "book": "Salmos",
+      "chapter": 148,
+      "verse": 13,
+      "text": "Alaben el nombre de Jehová, porque sólo su nombre es enaltecido; su gloria es sobre tierra y cielos.",
+      "ref": "Salmo 148:13",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 155,
+      "book": "Salmos",
+      "chapter": 149,
+      "verse": 1,
+      "text": "Cantad a Jehová cántico nuevo; su alabanza sea en la congregación de los santos.",
+      "ref": "Salmo 149:1",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 156,
+      "book": "Salmos",
+      "chapter": 150,
+      "verse": 6,
+      "text": "Todo lo que respira alabe a JAH. Aleluya.",
+      "ref": "Salmo 150:6",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 157,
+      "book": "Proverbios",
+      "chapter": 2,
+      "verse": 6,
+      "text": "Porque Jehová da la sabiduría, y de su boca viene el conocimiento y la inteligencia.",
+      "ref": "Proverbios 2:6",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 158,
+      "book": "Proverbios",
+      "chapter": 3,
+      "verse": 13,
+      "text": "Bienaventurado el hombre que halla la sabiduría, y que obtiene la inteligencia.",
+      "ref": "Proverbios 3:13",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 159,
+      "book": "Proverbios",
+      "chapter": 10,
+      "verse": 12,
+      "text": "El odio despierta rencillas; pero el amor cubre todas las faltas.",
+      "ref": "Proverbios 10:12",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 160,
+      "book": "Proverbios",
+      "chapter": 11,
+      "verse": 2,
+      "text": "Cuando viene la soberbia, viene también la deshonra; mas con los humildes está la sabiduría.",
+      "ref": "Proverbios 11:2",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 161,
+      "book": "Proverbios",
+      "chapter": 12,
+      "verse": 25,
+      "text": "La congoja en el corazón del hombre lo abate; mas la buena palabra lo alegra.",
+      "ref": "Proverbios 12:25",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 162,
+      "book": "Proverbios",
+      "chapter": 14,
+      "verse": 29,
+      "text": "El que tarda en airarse es grande de entendimiento; mas el que es impaciente muestra su locura.",
+      "ref": "Proverbios 14:29",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 163,
+      "book": "Proverbios",
+      "chapter": 15,
+      "verse": 3,
+      "text": "Los ojos de Jehová están en todo lugar, mirando a los malos y a los buenos.",
+      "ref": "Proverbios 15:3",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 164,
+      "book": "Proverbios",
+      "chapter": 16,
+      "verse": 9,
+      "text": "El corazón del hombre dispone su camino; pero Jehová endereza sus pasos.",
+      "ref": "Proverbios 16:9",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 165,
+      "book": "Proverbios",
+      "chapter": 17,
+      "verse": 3,
+      "text": "El crisol para la plata, y la hornaza para el oro; pero Jehová prueba los corazones.",
+      "ref": "Proverbios 17:3",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 166,
+      "book": "Proverbios",
+      "chapter": 19,
+      "verse": 11,
+      "text": "La cordura del hombre detiene su furor, y su honra es pasar por alto la ofensa.",
+      "ref": "Proverbios 19:11",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 167,
+      "book": "Proverbios",
+      "chapter": 20,
+      "verse": 22,
+      "text": "No digas: Yo me vengaré; espera a Jehová, y él te salvará.",
+      "ref": "Proverbios 20:22",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 168,
+      "book": "Proverbios",
+      "chapter": 22,
+      "verse": 4,
+      "text": "Riquezas, honra y vida son la remuneración de la humildad y del temor de Jehová.",
+      "ref": "Proverbios 22:4",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 169,
+      "book": "Proverbios",
+      "chapter": 24,
+      "verse": 10,
+      "text": "Si fueres flojo en el día de trabajo, tu fuerza será reducida.",
+      "ref": "Proverbios 24:10",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 170,
+      "book": "Proverbios",
+      "chapter": 29,
+      "verse": 25,
+      "text": "El temor del hombre pondrá lazo; mas el que confía en Jehová será exaltado.",
+      "ref": "Proverbios 29:25",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 171,
+      "book": "Isaías",
+      "chapter": 12,
+      "verse": 2,
+      "text": "He aquí Dios es salvación mía; me aseguraré y no temeré; porque mi fortaleza y mi canción es JAH Jehová, quien ha sido salvación para mí.",
+      "ref": "Isaías 12:2",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 172,
+      "book": "Isaías",
+      "chapter": 30,
+      "verse": 15,
+      "text": "Porque así dijo Jehová el Señor, el Santo de Israel: En descanso y en reposo seréis salvos; en quietud y en confianza será vuestra fortaleza.",
+      "ref": "Isaías 30:15",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 173,
+      "book": "Isaías",
+      "chapter": 35,
+      "verse": 10,
+      "text": "Y los redimidos de Jehová volverán, y vendrán a Sion con alegría; y gozo perpetuo será sobre sus cabezas; y obtendrán gozo y alegría, y huirán la tristeza y el gemido.",
+      "ref": "Isaías 35:10",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 174,
+      "book": "Isaías",
+      "chapter": 43,
+      "verse": 2,
+      "text": "Cuando pases por las aguas, yo estaré contigo; y por los ríos, no te anegarán. Cuando pases por el fuego, no te quemarás, ni la llama arderá en ti.",
+      "ref": "Isaías 43:2",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 175,
+      "book": "Isaías",
+      "chapter": 53,
+      "verse": 5,
+      "text": "Mas él herido fue por nuestras rebeliones, molido por nuestros pecados; el castigo de nuestra paz fue sobre él, y por su llaga fuimos nosotros curados.",
+      "ref": "Isaías 53:5",
+      "categories": [
+        "perdon"
+      ]
+    },
+    {
+      "id": 176,
+      "book": "Isaías",
+      "chapter": 54,
+      "verse": 10,
+      "text": "Porque los montes se moverán, y los collados temblarán, pero no se apartará de ti mi misericordia, ni el pacto de mi paz se quebrantará, dijo Jehová, el que tiene misericordia de ti.",
+      "ref": "Isaías 54:10",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 177,
+      "book": "Jeremías",
+      "chapter": 31,
+      "verse": 34,
+      "text": "Y no enseñará más ninguno a su prójimo, ni ninguno a su hermano, diciendo: Conoce a Jehová; porque todos me conocerán, desde el más pequeño de ellos hasta el más grande, dice Jehová; porque perdonaré la maldad de ellos, y no me acordaré más de su pecado.",
+      "ref": "Jeremías 31:34",
+      "categories": [
+        "perdon"
+      ]
+    },
+    {
+      "id": 178,
+      "book": "Lamentaciones",
+      "chapter": 3,
+      "verse": 23,
+      "text": "Nuevas son cada mañana; grande es tu fidelidad.",
+      "ref": "Lamentaciones 3:23",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 179,
+      "book": "Ezequiel",
+      "chapter": 36,
+      "verse": 26,
+      "text": "Os daré corazón nuevo, y pondré espíritu nuevo dentro de vosotros; y quitaré de vuestra carne el corazón de piedra, y os daré un corazón de carne.",
+      "ref": "Ezequiel 36:26",
+      "categories": [
+        "perdon"
+      ]
+    },
+    {
+      "id": 180,
+      "book": "Daniel",
+      "chapter": 2,
+      "verse": 20,
+      "text": "Sea alabado el nombre de Dios de siglos en siglos, porque suyos son la sabiduría y el poder.",
+      "ref": "Daniel 2:20",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 181,
+      "book": "Jonás",
+      "chapter": 2,
+      "verse": 7,
+      "text": "Cuando mi alma desfallecía en mí, me acordé de Jehová, y mi oración llegó hasta ti, hasta tu santo templo.",
+      "ref": "Jonás 2:7",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 182,
+      "book": "Miqueas",
+      "chapter": 6,
+      "verse": 8,
+      "text": "Oh hombre, él te ha declarado lo que es bueno, y qué pide Jehová de ti: solamente hacer justicia, y amar misericordia, y humillarte ante tu Dios.",
+      "ref": "Miqueas 6:8",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 183,
+      "book": "Habacuc",
+      "chapter": 3,
+      "verse": 19,
+      "text": "Jehová el Señor es mi fortaleza, el cual hace mis pies como de ciervas, y en mis alturas me hace andar.",
+      "ref": "Habacuc 3:19",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 184,
+      "book": "Zacarías",
+      "chapter": 4,
+      "verse": 6,
+      "text": "No con ejército, ni con fuerza, sino con mi Espíritu, ha dicho Jehová de los ejércitos.",
+      "ref": "Zacarías 4:6",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 185,
+      "book": "Malaquías",
+      "chapter": 3,
+      "verse": 10,
+      "text": "Traed todos los diezmos al alfolí y haya alimento en mi casa; y probadme ahora en esto, dice Jehová de los ejércitos, si no os abriré las ventanas de los cielos, y derramaré sobre vosotros bendición hasta que sobreabunde.",
+      "ref": "Malaquías 3:10",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 186,
+      "book": "Mateo",
+      "chapter": 5,
+      "verse": 9,
+      "text": "Bienaventurados los pacificadores, porque ellos serán llamados hijos de Dios.",
+      "ref": "Mateo 5:9",
+      "categories": [
+        "sabiduria"
+      ]
+    },
+    {
+      "id": 187,
+      "book": "Mateo",
+      "chapter": 11,
+      "verse": 29,
+      "text": "Llevad mi yugo sobre vosotros, y aprended de mí, que soy manso y humilde de corazón; y hallaréis descanso para vuestras almas.",
+      "ref": "Mateo 11:29",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 188,
+      "book": "Juan",
+      "chapter": 1,
+      "verse": 12,
+      "text": "Mas a todos los que le recibieron, a los que creen en su nombre, les dio potestad de ser hechos hijos de Dios.",
+      "ref": "Juan 1:12",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 189,
+      "book": "Juan",
+      "chapter": 10,
+      "verse": 10,
+      "text": "El ladrón no viene sino para hurtar y matar y destruir; yo he venido para que tengan vida, y para que la tengan en abundancia.",
+      "ref": "Juan 10:10",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 190,
+      "book": "Hechos",
+      "chapter": 16,
+      "verse": 31,
+      "text": "Cree en el Señor Jesucristo, y serás salvo, tú y tu casa.",
+      "ref": "Hechos 16:31",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 191,
+      "book": "Romanos",
+      "chapter": 6,
+      "verse": 23,
+      "text": "Porque la paga del pecado es muerte, mas la dádiva de Dios es vida eterna en Cristo Jesús Señor nuestro.",
+      "ref": "Romanos 6:23",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 192,
+      "book": "Romanos",
+      "chapter": 10,
+      "verse": 9,
+      "text": "Que si confesares con tu boca que Jesús es el Señor, y creyeres en tu corazón que Dios le levantó de los muertos, serás salvo.",
+      "ref": "Romanos 10:9",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 193,
+      "book": "1 Corintios",
+      "chapter": 10,
+      "verse": 13,
+      "text": "No os ha sobrevenido ninguna tentación que no sea humana; pero fiel es Dios, que no os dejará ser tentados más de lo que podéis resistir, sino que dará también juntamente con la tentación la salida, para que podáis soportar.",
+      "ref": "1 Corintios 10:13",
+      "categories": [
+        "consuelo"
+      ]
+    },
+    {
+      "id": 194,
+      "book": "2 Corintios",
+      "chapter": 5,
+      "verse": 17,
+      "text": "De modo que si alguno está en Cristo, nueva criatura es; las cosas viejas pasaron; he aquí todas son hechas nuevas.",
+      "ref": "2 Corintios 5:17",
+      "categories": [
+        "perdon"
+      ]
+    },
+    {
+      "id": 195,
+      "book": "Gálatas",
+      "chapter": 2,
+      "verse": 20,
+      "text": "Con Cristo estoy juntamente crucificado, y ya no vivo yo, mas vive Cristo en mí; y lo que ahora vivo en la carne, lo vivo en la fe del Hijo de Dios, el cual me amó y se entregó a sí mismo por mí.",
+      "ref": "Gálatas 2:20",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 196,
+      "book": "Efesios",
+      "chapter": 2,
+      "verse": 8,
+      "text": "Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios.",
+      "ref": "Efesios 2:8",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 197,
+      "book": "Filipenses",
+      "chapter": 3,
+      "verse": 14,
+      "text": "Prosigo a la meta, al premio del supremo llamamiento de Dios en Cristo Jesús.",
+      "ref": "Filipenses 3:14",
+      "categories": [
+        "esperanza"
+      ]
+    },
+    {
+      "id": 198,
+      "book": "Colosenses",
+      "chapter": 3,
+      "verse": 14,
+      "text": "Y sobre todas estas cosas vestíos de amor, que es el vínculo perfecto.",
+      "ref": "Colosenses 3:14",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 199,
+      "book": "1 Tesalonicenses",
+      "chapter": 5,
+      "verse": 16,
+      "text": "Estad siempre gozosos.",
+      "ref": "1 Tesalonicenses 5:16",
+      "categories": [
+        "amor"
+      ]
+    },
+    {
+      "id": 200,
+      "book": "1 Juan",
+      "chapter": 5,
+      "verse": 11,
+      "text": "Y este es el testimonio: que Dios nos ha dado vida eterna; y esta vida está en su Hijo.",
+      "ref": "1 Juan 5:11",
+      "categories": [
+        "esperanza"
+      ]
+    }
+  ]
+}

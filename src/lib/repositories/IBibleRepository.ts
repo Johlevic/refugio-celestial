@@ -13,5 +13,9 @@ export interface IBibleRepository {
 
 export interface IRemoteBibleSource {
   readonly supportsLanguage: (lang: Lang) => boolean;
-  fetchRandomVerse(): Promise<Verse | null>;
+  fetchVerse(
+    lang: Lang,
+    mood: Mood,
+    avoidRefs: ReadonlySet<string>
+  ): Promise<Verse | null>;
 }

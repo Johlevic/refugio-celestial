@@ -3,6 +3,24 @@
 
 <script is:inline>
   (function () {
+    const MOOD_LABELS = {
+      es: {
+        all: "Todos",
+        comfort: "Consuelo",
+        wisdom: "Sabiduría",
+        hope: "Esperanza",
+        love: "Amor",
+        repentance: "Perdón",
+      },
+      en: {
+        all: "All",
+        comfort: "Comfort",
+        wisdom: "Wisdom",
+        hope: "Hope",
+        love: "Love",
+        repentance: "Forgiveness",
+      },
+    };
     const MOODS = new Set([
       "all",
       "comfort",
@@ -29,8 +47,16 @@
         if (el instanceof HTMLInputElement) el.value = lang;
       });
 
+      const labels = MOOD_LABELS[lang];
       const moodSel = document.getElementById("refugio-mood-select");
       if (moodSel && moodSel instanceof HTMLSelectElement) {
+        for (var j = 0; j < moodSel.options.length; j++) {
+          const opt = moodSel.options[j];
+          const value = opt.value;
+          if (Object.prototype.hasOwnProperty.call(labels, value)) {
+            opt.textContent = labels[value];
+          }
+        }
         if (MOODS.has(mood)) {
           moodSel.value = mood;
         }
@@ -51,6 +77,14 @@
       });
       document.querySelectorAll("[data-mood-btn]").forEach(function (b) {
         const v = b.getAttribute("data-mood-btn");
+        if (v && Object.prototype.hasOwnProperty.call(labels, v)) {
+          const labelNode = Array.from(b.childNodes).find(
+            (n) => n.nodeType === Node.TEXT_NODE && n.textContent && n.textContent.trim().length > 0,
+          );
+          if (labelNode) {
+            labelNode.textContent = " " + labels[v];
+          }
+        }
         b.classList.toggle("nav-active", v === mood);
         b.setAttribute("aria-pressed", v === mood ? "true" : "false");
       });

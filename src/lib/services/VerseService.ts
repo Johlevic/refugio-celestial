@@ -1,4 +1,4 @@
-import type { BibleApiRepository } from "../repositories/BibleApiRepository";
+import type { IRemoteBibleSource } from "../repositories/IBibleRepository";
 import type { LocalJsonBibleRepository } from "../repositories/LocalJsonBibleRepository";
 import { VerseRefCache } from "../cache/VerseRefCache";
 import type { Lang, Mood, Verse } from "../domain/types";
@@ -11,19 +11,19 @@ const MAX_ATTEMPTS = 45;
 export class VerseService {
   constructor(
     private readonly local: LocalJsonBibleRepository,
-    private readonly remote: BibleApiRepository,
+    private readonly remotes: IRemoteBibleSource[],
     private readonly cache: VerseRefCache
   ) {}
 
   async getNextVerse(lang: Lang, mood: Mood): Promise<Verse> {
     for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
       const avoid = this.cache.asSet();
-
-      if (lang === "en" && this.remote.supportsLanguage(lang)) {
-        const fromApi = await this.remote.fetchRandomVerse();
-        if (fromApi && !avoid.has(fromApi.ref)) {
-          this.cache.rememberRef(fromApi.ref);
-          return fromApi;
+      for (const remote of this.remotes) {
+        if (!remote.supportsLanguage(lang)) continue;
+        const fromRemote = await remote.fetchVerse(lang, mood, avoid);
+        if (fromRemote && !avoid.has(fromRemote.ref)) {
+          this.cache.rememberRef(fromRemote.ref);
+          return fromRemote;
         }
       }
 

@@ -1,5 +1,5 @@
 import type { IRemoteBibleSource } from "./IBibleRepository";
-import type { Lang, Verse } from "../domain/types";
+import type { Lang, Mood, Verse } from "../domain/types";
 import { formatVerseId } from "../domain/types";
 
 const DEFAULT_BASE = "https://bible-api.com";
@@ -27,7 +27,12 @@ export class BibleApiRepository implements IRemoteBibleSource {
     return lang === "en";
   }
 
-  async fetchRandomVerse(): Promise<Verse | null> {
+  async fetchVerse(
+    lang: Lang,
+    mood: Mood,
+    _avoidRefs: ReadonlySet<string>
+  ): Promise<Verse | null> {
+    if (lang !== "en" || mood !== "all") return null;
     const res = await fetch(
       `${this.baseUrl}/data/web/random`.replace(/\/$/, "")
     );

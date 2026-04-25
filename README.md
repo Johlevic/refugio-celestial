@@ -1,62 +1,39 @@
-# Versículos Bíblicos
+# Versiculos Biblicos
 
-Aplicación web de meditación bíblica con experiencia visual celestial, versículos por categoría, soporte ES/EN, descarga de imagen, notificaciones opcionales y modo PWA.
+App web/PWA de meditacion biblica (ES/EN) con filtros por categoria, compartir/descarga y fallback local cuando las APIs no responden.
 
-## Qué es
+## Flujo de fuentes (hibrido)
 
-`Versículos Bíblicos` muestra versículos bíblicos aleatorios con enfoque devocional:
+- **Espanol (`es`)**: intenta primero `API.Bible` (ej. LBLA) y si falla usa dataset local.
+- **Ingles (`en`)**:
+  - `mood=all`: intenta `bible-api.com` primero.
+  - para categorias y fallback general: usa API.Bible (si esta configurada) y despues local.
+- Siempre hay salida local para no romper UX en offline o errores remotos.
 
-- Categorías emocionales/espirituales (`sabiduría`, `consuelo`, `esperanza`, `amor`, etc.).
-- Interfaz bilingüe (español / inglés).
-- Fondo animado cósmico y UI enfocada en lectura.
-- Descarga/compartir del card como imagen PNG.
+## Seguridad de API key
 
-## Funcionalidades principales
+La clave de `API.Bible` se usa **solo del lado servidor** mediante endpoint Astro:
 
-- **Versículo aleatorio por categoría** con anti-repetición en memoria local.
-- **Modo de conexión** visible (`Online` / `Offline`).
-- **Fallback inteligente de fuente**:
-  - ES: dataset local (RVR60).
-  - EN: intenta API remota y cae a local si falla.
-- **Acciones rápidas** en card:
-  - Compartir
-  - Descargar PNG
-  - Copiar texto
-- **Toasts globales** para errores y eventos importantes.
-- **Páginas de error personalizadas** (`404`, `500`).
-- **PWA** con `manifest` + service worker (actualización automática).
-- **Notificaciones opcionales** (opt-in) con recordatorio diario matutino.
+- `src/pages/api/verse-remote.ts`
 
-## Estadísticas del contenido
+La key **no** debe estar en variables `PUBLIC_*`.
 
-Según metadatos de los datasets actuales:
+## Variables de entorno
 
-- **ES (RVR60 local):** `5000` versículos.
-- **EN (curated local):** `75` versículos.
+Usa `.env` (ver `.env.example`) y configura las mismas en Render:
 
-## Stack técnico
-
-- **Framework:** Astro
-- **UI:** React islands + Astro components
-- **Lenguaje:** TypeScript
-- **Estilos:** Tailwind CSS
-- **PWA:** `@vite-pwa/astro`
-- **Captura de imagen:** `html-to-image` + `html2canvas` (fallback)
-
-## Estructura (resumen)
-
-```txt
-src/
-  components/
-    celestial/        # Header, fondo cósmico, conexión
-    selectors/        # Mood/lang selectors
-    ui/               # URL sync, toasts, opt-in notificaciones
-    verse/            # Card, acciones, descarga
-  data/               # Datasets locales ES/EN
-  lib/                # dominio, repositorios, servicios, i18n
-  pages/              # index + 404 + 500
-public/img/           # logos y assets visuales
+```bash
+API_BIBLE_KEY=your_api_bible_key_here
+PUBLIC_API_BIBLE_BASE=https://api.scripture.api.bible/v1
+PUBLIC_API_BIBLE_BID_ES=
+PUBLIC_API_BIBLE_BID_EN=
+PUBLIC_BIBLE_API_BASE=https://bible-api.com
 ```
+
+Notas:
+- `API_BIBLE_KEY`: secreta, servidor.
+- `PUBLIC_API_BIBLE_BID_ES`: obligatorio si quieres remoto en espanol.
+- `PUBLIC_API_BIBLE_BID_EN`: opcional para remoto en ingles via API.Bible.
 
 ## Scripts
 
@@ -67,40 +44,21 @@ npm run build
 npm run preview
 ```
 
-Opcional:
+## Despliegue en Render
 
-```bash
-npm run gen:en
-```
+1. Crea el servicio web y conecta el repo.
+2. Configura variables de entorno (arriba) en Render.
+3. Build command: `npm run build`
+4. Start command: `npm run preview` (o tu comando de runtime preferido).
+5. Verifica:
+   - ES con y sin red remota
+   - EN `all` y categorias
+   - fallback local cuando API falla.
 
-## Modo Online/Offline (comportamiento)
+## Estructura relevante
 
-- **ES:** usa fuente local RVR60.
-- **EN:** intenta API remota; si hay fallo de red/API, usa local.
-- La interfaz muestra el estado de conexión en tiempo real en el header.
-
-## PWA (nombre de app)
-
-El proyecto incluye configuración PWA con:
-
-- `manifest.webmanifest`
-- service worker generado en build
-- `registerType: autoUpdate`
-
-Esto permite instalación en dispositivos compatibles y actualización automática de recursos.
-
-Nombre mostrado al instalar la app:
-
-- **BVerses**
-
-## Desarrollo y despliegue
-
-1. Instala dependencias.
-2. Corre `npm run dev` para desarrollo.
-3. Usa `npm run build` para salida estática en `dist/`.
-4. Despliega `dist/` en tu hosting estático preferido.
-
-## Empresa desarrolladora
-
-Desarrollado por **SysJoL**  
-Sitio: [https://sysjol.onrender.com/](https://sysjol.onrender.com/)
+- `src/lib/services/VerseService.ts`: orquestacion remoto/local + anti-repeticion.
+- `src/lib/repositories/BibleApiRepository.ts`: remoto EN (`bible-api.com`).
+- `src/lib/repositories/ApiBibleRepository.ts`: cliente -> proxy interno.
+- `src/pages/api/verse-remote.ts`: proxy server-side con key segura.
+- `src/data/verses-es.json`, `src/data/verses-en.json`: respaldo local.

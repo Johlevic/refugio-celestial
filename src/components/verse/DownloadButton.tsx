@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Lang } from "@/lib/domain/types";
 import { UI } from "@/lib/i18n/labels";
 import { showToast } from "@/lib/ui/toast";
+import html2canvas from "html2canvas";
 
 type Props = {
   captureElementId: string;
@@ -40,18 +41,8 @@ export async function captureVerseBlobById(
   }
 
   try {
-    const { toBlob } = await import("html-to-image");
-    return await toBlob(el as HTMLElement, {
-      cacheBust: true,
-      pixelRatio: Math.min(3, (window.devicePixelRatio || 1) * 1.4),
-      backgroundColor: "#12132a",
-      fetchRequestInit: { mode: "cors", credentials: "omit" },
-    });
-  } catch {
-    const mod = await import("html2canvas");
-    const html2canvas = mod.default;
     const canvas = await html2canvas(el, {
-      scale: Math.min(2, (window.devicePixelRatio || 1) * 1.2),
+      scale: Math.min(2.2, (window.devicePixelRatio || 1) * 1.25),
       backgroundColor: "#12132a",
       useCORS: true,
       allowTaint: false,
@@ -60,6 +51,8 @@ export async function captureVerseBlobById(
     return await new Promise((resolve) =>
       canvas.toBlob((b) => resolve(b), "image/png", 1)
     );
+  } catch {
+    return null;
   }
 }
 

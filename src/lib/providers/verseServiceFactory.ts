@@ -3,6 +3,7 @@ import versesEn from "@/data/verses-en.json";
 import { VerseService } from "../services/VerseService";
 import { LocalJsonBibleRepository } from "../repositories/LocalJsonBibleRepository";
 import { BibleApiRepository } from "../repositories/BibleApiRepository";
+import { ApiBibleRepository } from "../repositories/ApiBibleRepository";
 import { VerseRefCache } from "../cache/VerseRefCache";
 import type { Verse, Lang, Mood } from "../domain/types";
 import type { LocalVerseFile } from "../domain/types";
@@ -21,9 +22,12 @@ export function getClientVerseService(): VerseService {
       es: versesEs as LocalVerseFile,
       en: versesEn as LocalVerseFile,
     });
-    const remote = new BibleApiRepository();
+    const remotes = [
+      new ApiBibleRepository(),
+      new BibleApiRepository(),
+    ];
     const cache = new VerseRefCache();
-    clientService = new VerseService(local, remote, cache);
+    clientService = new VerseService(local, remotes, cache);
   }
   return clientService;
 }

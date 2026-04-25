@@ -12,7 +12,7 @@ export interface Verse {
   id: string;
   text: string;
   ref: string;
-  source: "bible-api" | "local";
+  source: "bible-api" | "api-bible" | "local";
   categories: string[];
   language: Lang;
 }

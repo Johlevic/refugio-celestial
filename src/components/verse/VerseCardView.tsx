@@ -115,26 +115,37 @@ export function VerseCardView({
   const doveSizeClass = isLongVerse ? "h-[5.5rem] w-[5.5rem] md:h-32 md:w-32" : "h-[5.5rem] w-[5.5rem] md:h-24 md:w-24";
   const sourceLine =
     lang === "es"
-      ? verse.source === "bible-api"
-        ? "World English Bible (WEB)"
-        : "Reina-Valera 1960 (RVR60)"
-      : verse.source === "bible-api"
-        ? "World English Bible (WEB)"
-        : "Source: Reina-Valera 1960 (RVR60)";
+      ? verse.source === "api-bible"
+        ? "La Biblia de las Americas (LBLA)"
+        : verse.source === "bible-api"
+          ? "World English Bible (WEB)"
+          : "Reina-Valera 1960 (RVR60)"
+      : verse.source === "api-bible"
+        ? "Source: La Biblia de las Americas (LBLA)"
+        : verse.source === "bible-api"
+          ? "World English Bible (WEB)"
+          : "Source: Reina-Valera 1960 (RVR60)";
   const testamentLabel = getTestamentLabel(verse.ref, lang);
 
   return (
     <article
       className="group relative z-10 mx-auto w-full max-w-2xl overflow-visible border px-2 py-8 max-md:min-h-0 max-md:rounded-2xl max-md:border-[0.5px] max-md:border-[#a6823a]/40 max-md:bg-slate-950/15 max-md:shadow-none md:rounded-2xl md:border-gold-500/10 md:bg-gradient-to-b md:from-[#12132a]/95 md:to-night/50 md:px-6 md:py-6 md:shadow-[0_0_24px_rgba(0,0,0,0.28)]"
     >
-      {actionSlot ? <div className="absolute right-3 top-3 z-20">{actionSlot}</div> : null}
+      {actionSlot ? <div className="absolute right-3 top-3 z-20 max-md:hidden">{actionSlot}</div> : null}
 
-      <p className="mb-3 flex w-full justify-center sm:mb-3">
-        <span className="inline-flex items-center justify-center gap-1.5 rounded-full border border-gold-500/40 bg-gold-500/10 px-3 py-1 text-center font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-400">
-          <i className="fa-solid fa-book-bible me-1.5 opacity-80" aria-hidden />
-          {categoryLabel}
-        </span>
-      </p>
+      <div className="relative mb-3 flex w-full items-center justify-center sm:mb-3">
+        <p className="flex w-full justify-center max-md:pr-12">
+          <span className="inline-flex max-w-[calc(100vw-8.5rem)] items-center justify-center gap-1.5 rounded-full border border-gold-500/40 bg-gold-500/10 px-3 py-1 text-center font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-400 sm:max-w-none">
+            <i className="fa-solid fa-book-bible me-1.5 shrink-0 opacity-80" aria-hidden />
+            <span className="truncate">{categoryLabel}</span>
+          </span>
+        </p>
+        {actionSlot ? (
+          <div className="absolute right-0 top-1/2 z-20 -translate-y-1/2 md:hidden">
+            {actionSlot}
+          </div>
+        ) : null}
+      </div>
 
       <div
         id={captureId}
