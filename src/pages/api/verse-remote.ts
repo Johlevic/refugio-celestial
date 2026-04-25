@@ -36,6 +36,12 @@ type ApiBibleCandidate = {
   ref: string;
   text: string;
 };
+type AttemptDebug = {
+  query: string;
+  status?: number;
+  error?: string;
+  candidateCount?: number;
+};
 
 function sanitizeText(value: string): string {
   return value
@@ -152,9 +158,11 @@ export const GET: APIRoute = async ({ url }) => {
     /\/$/,
     "",
   );
+  const debugMode = url.searchParams.get("debug") === "1";
   const keywords = KEYWORDS[lang][mood];
   const rotated = [...keywords].sort(() => Math.random() - 0.5);
   const timeoutMs = 6000;
+  const debugAttempts: AttemptDebug[] = [];
 
   for (const query of rotated) {
     const ctrl = new AbortController();
@@ -168,7 +176,10 @@ export const GET: APIRoute = async ({ url }) => {
         },
         signal: ctrl.signal,
       });
-      if (!res.ok) continue;
+      if (!res.ok) {
+        debugAttempts.push({ query, status: res.status, error: "search-not-ok" });
+        continue;
+      }
 
       const payload = (await res.json()) as unknown;
       const candidates = extractCandidates(payload)
@@ -176,6 +187,11 @@ export const GET: APIRoute = async ({ url }) => {
         .map((c) => ({ c, score: scoreCandidate(c, keywords) }))
         .filter((x) => x.score >= 4)
         .sort((a, b) => b.score - a.score);
+      debugAttempts.push({
+        query,
+        status: res.status,
+        candidateCount: candidates.length,
+      });
 
       const best = candidates[0]?.c;
       if (!best) continue;
@@ -193,14 +209,71 @@ export const GET: APIRoute = async ({ url }) => {
         { status: 200, headers: { "content-type": "application/json" } },
       );
     } catch {
-      // ignore and keep trying next keyword
+      debugAttempts.push({ query, error: "request-failed" });
     } finally {
       clearTimeout(timer);
     }
   }
 
-  return new Response(JSON.stringify({ verse: null, reason: "no-candidate" }), {
-    status: 200,
-    headers: { "content-type": "application/json" },
-  });
+  // Backup query with very common terms in case category terms are too strict.
+  const backupQueries = lang === "es" ? ["Dios", "Jesús", "Señor"] : ["God", "Jesus", "Lord"];
+  for (const query of backupQueries) {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+    try {
+      const u = `${base}/bibles/${encodeURIComponent(bibleId)}/search?query=${encodeURIComponent(query)}&limit=10`;
+      const res = await fetch(u, {
+        headers: {
+          "api-key": key,
+          accept: "application/json",
+        },
+        signal: ctrl.signal,
+      });
+      if (!res.ok) {
+        debugAttempts.push({ query, status: res.status, error: "backup-not-ok" });
+        continue;
+      }
+      const payload = (await res.json()) as unknown;
+      const candidates = extractCandidates(payload).filter(
+        (c) => !avoid.has(c.ref.toLowerCase()),
+      );
+      debugAttempts.push({
+        query,
+        status: res.status,
+        candidateCount: candidates.length,
+      });
+      const best = candidates[0];
+      if (!best) continue;
+
+      return new Response(
+        JSON.stringify({
+          verse: {
+            text: best.text,
+            ref: best.ref,
+            source: "api-bible",
+            language: lang,
+            categories: [toCategoryKey(lang, mood)],
+          },
+          ...(debugMode ? { debug: debugAttempts } : {}),
+        }),
+        { status: 200, headers: { "content-type": "application/json" } },
+      );
+    } catch {
+      debugAttempts.push({ query, error: "backup-request-failed" });
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  return new Response(
+    JSON.stringify({
+      verse: null,
+      reason: "no-candidate",
+      ...(debugMode ? { debug: debugAttempts } : {}),
+    }),
+    {
+      status: 200,
+      headers: { "content-type": "application/json" },
+    },
+  );
 };
