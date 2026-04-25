@@ -111,6 +111,8 @@ export function VerseCardView({
   const cache = new VerseRefCache();
   const n = cache.getRecentRefs().length;
   const L = labelsFor(lang);
+  const isLongVerse = verse.text.length > 170 || /\n/.test(verse.text);
+  const doveSizeClass = isLongVerse ? "h-[5.5rem] w-[5.5rem] md:h-32 md:w-32" : "h-[5.5rem] w-[5.5rem] md:h-24 md:w-24";
   const sourceLine =
     lang === "es"
       ? verse.source === "bible-api"
@@ -144,7 +146,7 @@ export function VerseCardView({
               src="/img/paloma-perfil.png"
               alt=""
               aria-hidden="true"
-              className="h-[5.5rem] w-[5.5rem] object-contain opacity-90 md:h-24 md:w-24"
+              className={`${doveSizeClass} object-contain opacity-90`}
               loading="lazy"
             />
           </div>
