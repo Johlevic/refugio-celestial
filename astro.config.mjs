@@ -53,8 +53,11 @@ export default defineConfig({
     }),
   ],
   vite: {
+    server: {
+      allowedHosts: true,
+    },
     preview: {
-      allowedHosts: ["versiculos-biblicos.onrender.com"],
+      allowedHosts: true,
     },
     resolve: {
       alias: { "@": path.resolve(__dirname, "src") },
