@@ -7,9 +7,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "start": "node ./dist/server/entry.mjs",
     "gen:en": "node scripts/gen-verses-en.mjs"
   },
   "dependencies": {
+    "@astrojs/node": "^8.3.4",
     "@astrojs/react": "^3.6.3",
     "@astrojs/tailwind": "^5.1.0",
     "@vite-pwa/astro": "^1.2.0",

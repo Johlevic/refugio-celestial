@@ -1,6 +1,7 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "astro/config";
+import node from "@astrojs/node";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import AstroPWA from "@vite-pwa/astro";
@@ -8,7 +9,10 @@ import AstroPWA from "@vite-pwa/astro";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  output: "static",
+  output: "server",
+  adapter: node({
+    mode: "standalone",
+  }),
   /** Barra flotante de Astro solo en desarrollo; desactivada si no la usas. */
   devToolbar: { enabled: false },
   integrations: [
@@ -53,12 +57,6 @@ export default defineConfig({
     }),
   ],
   vite: {
-    server: {
-      allowedHosts: true,
-    },
-    preview: {
-      allowedHosts: true,
-    },
     resolve: {
       alias: { "@": path.resolve(__dirname, "src") },
     },
