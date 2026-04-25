@@ -18,6 +18,7 @@ const MOODS: Mood[] = [
 ];
 const MOOD_SET = new Set<string>(MOODS);
 const CAPTURE = "refugio-verse-capture";
+const DAILY_KEY_PREFIX = "refugio.dailyVerseDate";
 
 type Props = {
   initialFromBuild: Verse;
@@ -41,6 +42,14 @@ function readUrl(): { lang: Lang; mood: Mood; hasQuery: boolean } {
     mood,
     hasQuery: window.location.search.length > 1,
   };
+}
+
+function getTodayKey(): string {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
 }
 
 /**
@@ -75,9 +84,17 @@ export function VerseCard({ initialFromBuild }: Props) {
 
   useEffect(() => {
     const { lang: L, mood: M, hasQuery } = readUrl();
-    if (!hasQuery) return;
     setLang(L);
     setMood(M);
+
+    const dailyKey = `${DAILY_KEY_PREFIX}:${L}:${M}`;
+    const today = getTodayKey();
+    const storedDay =
+      typeof window !== "undefined" ? localStorage.getItem(dailyKey) : null;
+    const mustRefreshByDay = storedDay !== today;
+    const shouldFetch = hasQuery || mustRefreshByDay;
+    if (!shouldFetch) return;
+
     setUrlDone(false);
     void (async () => {
       setLoading(true);
@@ -85,6 +102,7 @@ export function VerseCard({ initialFromBuild }: Props) {
         const s = getClientVerseService();
         const v = await s.getNextVerse(L, M);
         setVerse(v);
+        localStorage.setItem(dailyKey, today);
       } catch {
         setVerse(getSsgInitialVerse(L, M));
         showToast(
@@ -93,6 +111,7 @@ export function VerseCard({ initialFromBuild }: Props) {
             : "API failed on load. Using local data.",
           "warning"
         );
+        localStorage.setItem(dailyKey, today);
       } finally {
         setLoading(false);
         setUrlDone(true);
