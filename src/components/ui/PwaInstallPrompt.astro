@@ -1,0 +1,125 @@
+<div
+  id="refugio-pwa-install"
+  class="fixed bottom-3 left-1/2 z-[84] hidden w-[min(92vw,28rem)] -translate-x-1/2 rounded-xl border border-gold-500/35 bg-[#0e132d]/92 p-3 text-gold-100 shadow-[0_8px_28px_rgba(0,0,0,0.4)] backdrop-blur-sm md:hidden"
+>
+  <p class="text-sm font-semibold">
+    <span class="i18n-es">Instala la app en tu dispositivo</span>
+    <span class="i18n-en hidden" aria-hidden="true">Install the app on your device</span>
+  </p>
+  <p class="mt-1 text-xs text-gold-200/80">
+    <span class="i18n-es">Acceso rápido, experiencia tipo app y mejor modo offline.</span>
+    <span class="i18n-en hidden" aria-hidden="true"
+      >Quick access, app-like experience, and better offline mode.</span
+    >
+  </p>
+  <div class="mt-3 flex items-center gap-2">
+    <button
+      id="refugio-pwa-install-btn"
+      type="button"
+      class="inline-flex min-h-10 items-center justify-center rounded-full border border-gold-500/45 bg-gold-500/10 px-4 text-xs font-semibold text-gold-100 transition hover:bg-gold-500/20"
+    >
+      <span class="i18n-es">Instalar</span>
+      <span class="i18n-en hidden" aria-hidden="true">Install</span>
+    </button>
+    <button
+      id="refugio-pwa-install-dismiss"
+      type="button"
+      class="inline-flex min-h-10 items-center justify-center rounded-full border border-gold-500/25 bg-black/25 px-4 text-xs font-semibold text-gold-100/90 transition hover:bg-black/35"
+    >
+      <span class="i18n-es">Más tarde</span>
+      <span class="i18n-en hidden" aria-hidden="true">Later</span>
+    </button>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    if (typeof window === "undefined") return;
+    // Mobile-only prompt.
+    if (window.matchMedia("(min-width: 768px)").matches) return;
+
+    const KEY_DISMISSED_AT = "refugio.pwa.dismissedAt";
+    const KEY_INSTALLED = "refugio.pwa.installed";
+    const PROMPT_DELAY_MS = 2 * 60 * 1000; // 2 minutes
+    const DISMISS_COOLDOWN_MS = 1000 * 60 * 60 * 24 * 7; // 7 days
+
+    const wrap = document.getElementById("refugio-pwa-install");
+    const btnInstall = document.getElementById("refugio-pwa-install-btn");
+    const btnDismiss = document.getElementById("refugio-pwa-install-dismiss");
+    if (!wrap || !btnInstall || !btnDismiss) return;
+
+    let deferredPrompt = null;
+    let interactedAt = 0;
+    let shown = false;
+
+    function now() {
+      return Date.now();
+    }
+
+    function canShowByCooldown() {
+      if (localStorage.getItem(KEY_INSTALLED) === "1") return false;
+      const dismissedAt = Number(localStorage.getItem(KEY_DISMISSED_AT) || "0");
+      return !dismissedAt || now() - dismissedAt > DISMISS_COOLDOWN_MS;
+    }
+
+    function showPromptIfReady() {
+      if (shown) return;
+      if (!deferredPrompt) return;
+      if (!interactedAt) return;
+      if (!canShowByCooldown()) return;
+      if (now() - interactedAt < PROMPT_DELAY_MS) return;
+      shown = true;
+      wrap.classList.remove("hidden");
+    }
+
+    function markInteraction() {
+      if (!interactedAt) interactedAt = now();
+      showPromptIfReady();
+    }
+
+    function hidePrompt() {
+      wrap.classList.add("hidden");
+    }
+
+    window.addEventListener("beforeinstallprompt", function (e) {
+      e.preventDefault();
+      deferredPrompt = e;
+      showPromptIfReady();
+    });
+
+    window.addEventListener("appinstalled", function () {
+      localStorage.setItem(KEY_INSTALLED, "1");
+      deferredPrompt = null;
+      hidePrompt();
+    });
+
+    btnInstall.addEventListener("click", async function () {
+      if (!deferredPrompt) return;
+      hidePrompt();
+      try {
+        await deferredPrompt.prompt();
+        const choice = await deferredPrompt.userChoice;
+        if (choice && choice.outcome === "accepted") {
+          localStorage.setItem(KEY_INSTALLED, "1");
+        } else {
+          localStorage.setItem(KEY_DISMISSED_AT, String(now()));
+        }
+      } catch {
+        localStorage.setItem(KEY_DISMISSED_AT, String(now()));
+      } finally {
+        deferredPrompt = null;
+      }
+    });
+
+    btnDismiss.addEventListener("click", function () {
+      localStorage.setItem(KEY_DISMISSED_AT, String(now()));
+      hidePrompt();
+    });
+
+    ["pointerdown", "keydown", "scroll", "touchstart"].forEach((evt) =>
+      window.addEventListener(evt, markInteraction, { passive: true })
+    );
+
+    setInterval(showPromptIfReady, 15 * 1000);
+  })();
+</script>
