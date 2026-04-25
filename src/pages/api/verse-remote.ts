@@ -36,12 +36,6 @@ type ApiBibleCandidate = {
   ref: string;
   text: string;
 };
-type AttemptDebug = {
-  query: string;
-  status?: number;
-  error?: string;
-  candidateCount?: number;
-};
 
 function sanitizeText(value: string): string {
   return value
@@ -158,11 +152,9 @@ export const GET: APIRoute = async ({ url }) => {
     /\/$/,
     "",
   );
-  const debugMode = url.searchParams.get("debug") === "1";
   const keywords = KEYWORDS[lang][mood];
   const rotated = [...keywords].sort(() => Math.random() - 0.5);
   const timeoutMs = 6000;
-  const debugAttempts: AttemptDebug[] = [];
 
   for (const query of rotated) {
     const ctrl = new AbortController();
@@ -176,10 +168,7 @@ export const GET: APIRoute = async ({ url }) => {
         },
         signal: ctrl.signal,
       });
-      if (!res.ok) {
-        debugAttempts.push({ query, status: res.status, error: "search-not-ok" });
-        continue;
-      }
+      if (!res.ok) continue;
 
       const payload = (await res.json()) as unknown;
       const candidates = extractCandidates(payload)
@@ -187,12 +176,6 @@ export const GET: APIRoute = async ({ url }) => {
         .map((c) => ({ c, score: scoreCandidate(c, keywords) }))
         .filter((x) => x.score >= 4)
         .sort((a, b) => b.score - a.score);
-      debugAttempts.push({
-        query,
-        status: res.status,
-        candidateCount: candidates.length,
-      });
-
       const best = candidates[0]?.c;
       if (!best) continue;
 
@@ -209,7 +192,7 @@ export const GET: APIRoute = async ({ url }) => {
         { status: 200, headers: { "content-type": "application/json" } },
       );
     } catch {
-      debugAttempts.push({ query, error: "request-failed" });
+      // ignore and continue trying other queries
     } finally {
       clearTimeout(timer);
     }
@@ -229,19 +212,11 @@ export const GET: APIRoute = async ({ url }) => {
         },
         signal: ctrl.signal,
       });
-      if (!res.ok) {
-        debugAttempts.push({ query, status: res.status, error: "backup-not-ok" });
-        continue;
-      }
+      if (!res.ok) continue;
       const payload = (await res.json()) as unknown;
       const candidates = extractCandidates(payload).filter(
         (c) => !avoid.has(c.ref.toLowerCase()),
       );
-      debugAttempts.push({
-        query,
-        status: res.status,
-        candidateCount: candidates.length,
-      });
       const best = candidates[0];
       if (!best) continue;
 
@@ -254,26 +229,18 @@ export const GET: APIRoute = async ({ url }) => {
             language: lang,
             categories: [toCategoryKey(lang, mood)],
           },
-          ...(debugMode ? { debug: debugAttempts } : {}),
         }),
         { status: 200, headers: { "content-type": "application/json" } },
       );
     } catch {
-      debugAttempts.push({ query, error: "backup-request-failed" });
+      // ignore and continue
     } finally {
       clearTimeout(timer);
     }
   }
 
-  return new Response(
-    JSON.stringify({
-      verse: null,
-      reason: "no-candidate",
-      ...(debugMode ? { debug: debugAttempts } : {}),
-    }),
-    {
-      status: 200,
-      headers: { "content-type": "application/json" },
-    },
-  );
+  return new Response(JSON.stringify({ verse: null, reason: "no-candidate" }), {
+    status: 200,
+    headers: { "content-type": "application/json" },
+  });
 };
