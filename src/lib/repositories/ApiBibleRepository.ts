@@ -16,9 +16,7 @@ export class ApiBibleRepository implements IRemoteBibleSource {
   constructor(private readonly endpoint = "/api/verse-remote") {}
 
   supportsLanguage(lang: Lang): boolean {
-    if (lang === "es") return Boolean(import.meta.env.PUBLIC_API_BIBLE_BID_ES);
-    if (lang === "en") return Boolean(import.meta.env.PUBLIC_API_BIBLE_BID_EN);
-    return false;
+    return lang === "es" && Boolean(import.meta.env.PUBLIC_API_BIBLE_BID_ES);
   }
 
   async fetchVerse(
