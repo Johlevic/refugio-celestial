@@ -62,6 +62,8 @@ export function VerseCard({ initialFromBuild }: Props) {
   const [mood, setMood] = useState<Mood>("all");
   const [loading, setLoading] = useState(false);
   const [urlDone, setUrlDone] = useState(true);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [isAudioSupported, setIsAudioSupported] = useState(true);
 
   const refresh = useCallback(async (L: Lang, M: Mood) => {
     setLoading(true);
@@ -121,8 +123,66 @@ export function VerseCard({ initialFromBuild }: Props) {
 
   const onNew = useCallback(() => {
     if (!urlDone) return;
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+      setIsAudioPlaying(false);
+    }
     void refresh(lang, mood);
   }, [lang, mood, refresh, urlDone]);
+
+  const onToggleSpeak = useCallback(() => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+      showToast(
+        lang === "es"
+          ? "Tu navegador no soporta lectura por voz."
+          : "Your browser does not support text-to-speech.",
+        "warning"
+      );
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(`${verse.text}. ${verse.ref}`);
+    utterance.lang = lang === "es" ? "es-ES" : "en-US";
+    utterance.rate = 0.95;
+    utterance.pitch = 1;
+    utterance.onend = () => setIsAudioPlaying(false);
+    utterance.onerror = () => {
+      setIsAudioPlaying(false);
+      showToast(
+        lang === "es"
+          ? "No se pudo reproducir el audio."
+          : "Could not play audio.",
+        "error"
+      );
+    };
+
+    setIsAudioPlaying(true);
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+  }, [lang, verse.ref, verse.text]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const supported = "speechSynthesis" in window && typeof SpeechSynthesisUtterance !== "undefined";
+    if (!supported) {
+      setIsAudioSupported(false);
+      showToast(
+        lang === "es"
+          ? "Tu dispositivo no soporta lectura por voz."
+          : "Your device does not support text-to-speech.",
+        "warning"
+      );
+    }
+  }, [lang]);
+
+  useEffect(() => {
+    return () => {
+      if (typeof window !== "undefined" && "speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+        setIsAudioPlaying(false);
+      }
+    };
+  }, []);
 
   const t = UI[lang];
   const tag = displayCategory(verse, lang, mood);
@@ -147,6 +207,21 @@ export function VerseCard({ initialFromBuild }: Props) {
             disabled={loading}
           />
         }
+        audioSlot={isAudioSupported ? (
+          <button
+            type="button"
+            onClick={onToggleSpeak}
+            disabled={loading || isAudioPlaying}
+            aria-label={lang === "es" ? "Escuchar versículo" : "Listen verse"}
+            title={lang === "es" ? "Escuchar versículo" : "Listen verse"}
+            className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-gold-500/55 bg-[#1e1508]/95 p-0 text-gold-300 shadow-[0_0_14px_rgba(212,175,55,0.28)] transition hover:border-gold-400 hover:bg-[#2d1f0d] disabled:cursor-wait disabled:opacity-60"
+          >
+            <i
+              className="fa-solid fa-volume-high text-base"
+              aria-hidden
+            />
+          </button>
+        ) : null}
         actionSlotDesktop={
           <DownloadButton
             captureElementId={CAPTURE}

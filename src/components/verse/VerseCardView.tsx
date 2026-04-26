@@ -93,6 +93,8 @@ type Props = {
   footerText: string;
   /** Móvil: icono de descarga (esquina del card) */
   actionSlot?: ReactNode;
+  /** Móvil/desktop: icono de audio (esquina opuesta al menú) */
+  audioSlot?: ReactNode;
   /** PC/tablet: botón de descarga con texto en la fila con “Nuevo versículo” */
   actionSlotDesktop?: ReactNode;
 };
@@ -109,6 +111,7 @@ export function VerseCardView({
   titleLine,
   footerText,
   actionSlot,
+  audioSlot,
   actionSlotDesktop,
 }: Props) {
   const [devotionOpen, setDevotionOpen] = useState<DevotionAction | null>(null);
@@ -180,6 +183,7 @@ export function VerseCardView({
     <article
       className="group relative z-10 mx-auto w-full max-w-2xl overflow-visible border px-2 py-8 max-md:min-h-0 max-md:rounded-2xl max-md:border-[0.5px] max-md:border-[#a6823a]/40 max-md:bg-slate-950/15 max-md:shadow-none md:rounded-2xl md:border-gold-500/10 md:bg-gradient-to-b md:from-[#12132a]/95 md:to-night/50 md:px-6 md:py-6 md:shadow-[0_0_24px_rgba(0,0,0,0.28)]"
     >
+      {audioSlot ? <div className="absolute left-3 top-3 z-20 max-md:hidden">{audioSlot}</div> : null}
       {actionSlot ? <div className="absolute right-3 top-3 z-20 max-md:hidden">{actionSlot}</div> : null}
 
       <div className="relative mb-3 flex w-full items-center justify-center sm:mb-3">
@@ -189,6 +193,11 @@ export function VerseCardView({
             <span className="truncate">{categoryLabel}</span>
           </span>
         </p>
+        {audioSlot ? (
+          <div className="absolute left-0 top-1/2 z-20 -translate-y-1/2 md:hidden">
+            {audioSlot}
+          </div>
+        ) : null}
         {actionSlot ? (
           <div className="absolute right-0 top-1/2 z-20 -translate-y-1/2 md:hidden">
             {actionSlot}
