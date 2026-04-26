@@ -1,4 +1,5 @@
 <div 
+  data-app-header
   class="app-title text-center max-md:flex max-md:min-h-[clamp(6rem,18vh,10rem)] max-md:flex-col max-md:justify-center max-md:py-[clamp(0.75rem,2.6vh,1.5rem)] sm:py-4" 
   role="group" 
   aria-label="Título del sitio"
@@ -41,7 +42,7 @@
     </h1>
   </div>
 
-  <div class="mt-3 flex justify-center sm:mt-4">
+  <div data-app-header-dove class="mt-3 flex justify-center sm:mt-4">
     <img
       src="/img/paloma-top.png"
       alt=""
@@ -52,5 +53,50 @@
   </div>
 
   <!-- Línea decorativa inferior (debajo de la paloma) -->
-  <div class="mx-auto mt-1 h-px w-32 bg-gradient-to-r from-transparent via-gold-500/30 to-transparent sm:mt-1.5 sm:w-48" />
+  <div data-app-header-divider class="mx-auto mt-1 h-px w-32 bg-gradient-to-r from-transparent via-gold-500/30 to-transparent sm:mt-1.5 sm:w-48" />
 </div>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector("[data-app-header]");
+    if (!root) return;
+    const mql = window.matchMedia("(min-width: 768px)");
+
+    const onScroll = () => {
+      if (!mql.matches) {
+        root.classList.remove("is-scrolled");
+        return;
+      }
+      const scrolled = window.scrollY > 26;
+      root.classList.toggle("is-scrolled", scrolled);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    mql.addEventListener?.("change", onScroll);
+  })();
+</script>
+
+<style>
+  @media (min-width: 768px) {
+    .app-title [data-app-header-dove],
+    .app-title [data-app-header-divider] {
+      transition: opacity 220ms ease, transform 220ms ease, max-height 220ms ease, margin 220ms ease;
+      transform-origin: top center;
+    }
+
+    .app-title.is-scrolled [data-app-header-dove] {
+      opacity: 0;
+      transform: scale(0.88);
+      max-height: 0;
+      margin-top: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .app-title.is-scrolled [data-app-header-divider] {
+      opacity: 0.25;
+      margin-top: 0;
+    }
+  }
+</style>

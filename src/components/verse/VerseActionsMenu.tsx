@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { Lang } from "@/lib/domain/types";
 import {
+  buildVerseImageFilename,
   captureVerseBlobById,
   downloadVerseCaptureById,
 } from "./DownloadButton";
@@ -75,8 +77,8 @@ export function VerseActionsMenu({
     const spaceBottom = window.innerHeight - ar.bottom;
     const spaceTop = ar.top;
 
-    // If there is not enough room to the right, open toward the left side.
-    setHAlign(spaceRight >= pr.width || spaceRight >= spaceLeft ? "open-right" : "open-left");
+    // Prefer opening to the left side when there is room (safer near right edge).
+    setHAlign(spaceLeft >= pr.width ? "open-left" : "open-right");
     setVAlign(spaceBottom >= pr.height || spaceBottom >= spaceTop ? "down" : "up");
   }, [open]);
 
@@ -101,7 +103,7 @@ export function VerseActionsMenu({
     try {
       const blob = await captureVerseBlobById(captureElementId);
       if (blob && navigator.share) {
-        const file = new File([blob], "refugio-celestial-versiculo.png", {
+        const file = new File([blob], buildVerseImageFilename(verseRef), {
           type: "image/png",
         });
         const data = { files: [file], text: shareText, title: "BVerses" };
@@ -136,21 +138,45 @@ export function VerseActionsMenu({
     }
   };
 
+  const DOWNLOAD_MODAL_DELAY_MS = 450;
+
   const onDownload = async () => {
     setBusy(true);
-    setShowDownloadModal(true);
+    setShowDownloadModal(false);
     setDownloadDone(false);
-    setDownloadProgress(1);
-    let success = false;
-    let progressTimer = window.setInterval(() => {
-      setDownloadProgress((p) => (p < 92 ? p + Math.max(1, Math.round((92 - p) * 0.08)) : p));
-    }, 120);
+    setDownloadProgress(0);
+
+    let downloadFinished = false;
+    let progressUiShown = false;
+    let progressTimer = 0;
+
+    const successMsg =
+      lang === "es" ? "Imagen descargada." : "Image saved.";
+
+    const showModalTimer = window.setTimeout(() => {
+      if (downloadFinished) return;
+      progressUiShown = true;
+      setShowDownloadModal(true);
+      setDownloadProgress(1);
+      progressTimer = window.setInterval(() => {
+        setDownloadProgress((p) => (p < 92 ? p + Math.max(1, Math.round((92 - p) * 0.08)) : p));
+      }, 120);
+    }, DOWNLOAD_MODAL_DELAY_MS);
+
     try {
-      const ok = await downloadVerseCaptureById(captureElementId);
-      window.clearInterval(progressTimer);
-      progressTimer = 0;
-      setDownloadProgress(100);
+      const ok = await downloadVerseCaptureById(
+        captureElementId,
+        buildVerseImageFilename(verseRef)
+      );
+      downloadFinished = true;
+      window.clearTimeout(showModalTimer);
+      if (progressTimer) {
+        window.clearInterval(progressTimer);
+        progressTimer = 0;
+      }
+
       if (!ok) {
+        setShowDownloadModal(false);
         showToast(
           lang === "es"
             ? "No se pudo generar la imagen."
@@ -158,13 +184,30 @@ export function VerseActionsMenu({
           "error"
         );
       } else {
-        setDownloadDone(true);
-        success = true;
+        if (progressUiShown) {
+          setDownloadProgress(100);
+          setDownloadDone(true);
+          window.setTimeout(() => {
+            setShowDownloadModal(false);
+            setDownloadDone(false);
+            setDownloadProgress(0);
+            showToast(successMsg, "success", 2200);
+          }, 700);
+        } else {
+          showToast(successMsg, "success", 2200);
+        }
       }
       setOpen(false);
     } catch {
-      window.clearInterval(progressTimer);
-      progressTimer = 0;
+      downloadFinished = true;
+      window.clearTimeout(showModalTimer);
+      if (progressTimer) {
+        window.clearInterval(progressTimer);
+        progressTimer = 0;
+      }
+      setShowDownloadModal(false);
+      setDownloadDone(false);
+      setDownloadProgress(0);
       showToast(
         lang === "es"
           ? "Falló la descarga de la imagen."
@@ -173,11 +216,6 @@ export function VerseActionsMenu({
       );
     } finally {
       if (progressTimer) window.clearInterval(progressTimer);
-      window.setTimeout(() => {
-        setShowDownloadModal(false);
-        setDownloadDone(false);
-        setDownloadProgress(0);
-      }, success ? 950 : 350);
       setBusy(false);
     }
   };
@@ -237,8 +275,8 @@ export function VerseActionsMenu({
         <div
           ref={panelRef}
           role="menu"
-          className={`absolute z-30 min-w-[10.5rem] rounded-xl border border-gold-500/35 bg-[#0f1228]/95 p-1.5 shadow-[0_0_18px_rgba(0,0,0,0.45)] backdrop-blur-sm ${
-            hAlign === "open-left" ? "right-0" : "left-0"
+          className={`absolute z-30 min-w-[10.5rem] max-w-[calc(100vw-1rem)] rounded-xl border border-gold-500/35 bg-[#0f1228]/95 p-1.5 shadow-[0_0_18px_rgba(0,0,0,0.45)] backdrop-blur-sm max-md:right-0 max-md:left-auto ${
+            hAlign === "open-left" ? "md:right-0 md:left-auto" : "md:left-0 md:right-auto"
           } ${vAlign === "down" ? "top-12" : "bottom-12"}`}
         >
           <button
@@ -274,36 +312,39 @@ export function VerseActionsMenu({
         </div>
       ) : null}
 
-      {showDownloadModal ? (
-        <div className="fixed inset-0 z-[90] flex items-center justify-center bg-black/55 px-4 backdrop-blur-[1px]">
-          <div className="w-full max-w-xs rounded-2xl border border-gold-500/30 bg-[#0f1228]/95 p-4 text-gold-100 shadow-[0_14px_40px_rgba(0,0,0,0.5)]">
-            <p className="text-center text-sm font-semibold">
-              {lang === "es" ? "Descargando imagen..." : "Downloading image..."}
-            </p>
+      {showDownloadModal && typeof document !== "undefined"
+        ? createPortal(
+            <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/55 px-4 backdrop-blur-[1px]">
+              <div className="w-full max-w-xs rounded-2xl border border-gold-500/30 bg-[#0f1228]/95 p-4 text-gold-100 shadow-[0_14px_40px_rgba(0,0,0,0.5)]">
+                <p className="text-center text-sm font-semibold">
+                  {lang === "es" ? "Descargando imagen..." : "Downloading image..."}
+                </p>
 
-            {!downloadDone ? (
-              <>
-                <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/10">
-                  <div
-                    className="h-full rounded-full bg-gradient-to-r from-gold-400 to-gold-200 transition-all duration-150"
-                    style={{ width: `${Math.max(2, downloadProgress)}%` }}
-                  />
-                </div>
-                <p className="mt-2 text-center text-xs text-gold-200/85">{downloadProgress}%</p>
-              </>
-            ) : (
-              <div className="mt-3 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" aria-hidden>
-                  <path
-                    fill="#06f520"
-                    d="m10.6 13.8l-2.15-2.15q-.275-.275-.7-.275t-.7.275t-.275.7t.275.7L9.9 15.9q.3.3.7.3t.7-.3l5.65-5.65q.275-.275.275-.7t-.275-.7t-.7-.275t-.7.275zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"
-                  />
-                </svg>
+                {!downloadDone ? (
+                  <>
+                    <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/10">
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-gold-400 to-gold-200 transition-all duration-150"
+                        style={{ width: `${Math.max(2, downloadProgress)}%` }}
+                      />
+                    </div>
+                    <p className="mt-2 text-center text-xs text-gold-200/85">{downloadProgress}%</p>
+                  </>
+                ) : (
+                  <div className="mt-3 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" aria-hidden>
+                      <path
+                        fill="#06f520"
+                        d="m10.6 13.8l-2.15-2.15q-.275-.275-.7-.275t-.7.275t-.275.7t.275.7L9.9 15.9q.3.3.7.3t.7-.3l5.65-5.65q.275-.275.275-.7t-.275-.7t-.7-.275t-.7.275zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"
+                      />
+                    </svg>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        </div>
-      ) : null}
+            </div>,
+            document.body
+          )
+        : null}
     </div>
   );
 }

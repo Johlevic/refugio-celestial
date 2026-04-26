@@ -1,0 +1,51 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  closeLabel?: string;
+  zIndexClass?: string;
+  maxHeightClass?: string;
+}
+
+const {
+  id,
+  title,
+  closeLabel = "Close",
+  zIndexClass = "z-[120]",
+  maxHeightClass = "max-h-[72dvh]",
+} = Astro.props;
+
+const panelId = `${id}-panel`;
+const closeId = `${id}-close`;
+---
+
+<div
+  id={id}
+  class={`fixed inset-0 hidden flex-col items-stretch justify-end bg-[#04060f]/80 backdrop-blur-[2px] ${zIndexClass}`.trim()}
+  aria-hidden="true"
+>
+  <section
+    id={panelId}
+    class={`mt-auto flex w-full translate-y-full flex-col overflow-hidden rounded-t-2xl border border-gold-400/55 border-b-0 bg-[#0b1024] text-gold-100 shadow-[0_-12px_34px_rgba(0,0,0,0.5)] transition-transform duration-200 ease-out ${maxHeightClass}`.trim()}
+    role="dialog"
+    aria-modal="true"
+    aria-label={title}
+  >
+    <div class="mx-auto mt-2 h-1 w-11 rounded-full bg-gold-200/35" aria-hidden="true"></div>
+    <header class="relative flex items-center justify-center border-b border-gold-500/25 px-4 py-2">
+      <h3 class="text-center font-display text-xs uppercase tracking-[0.1em] text-gold-200">{title}</h3>
+      <button
+        type="button"
+        id={closeId}
+        class="absolute right-4 top-[35%] inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-gold-500/40 bg-transparent text-gold-200"
+        aria-label={closeLabel}
+      >
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </header>
+    <div class="mood-sheet-body min-h-[44dvh] overflow-y-auto px-4 pb-5 pt-3">
+      <slot />
+    </div>
+    <slot name="footer" />
+  </section>
+</div>

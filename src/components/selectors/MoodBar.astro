@@ -1,6 +1,7 @@
 ---
 import type { Lang, Mood } from "@/lib/domain/types";
 import { UI } from "@/lib/i18n/labels";
+import MobileBottomSheet from "@/components/ui/MobileBottomSheet.astro";
 
 interface Props {
   currentLang: Lang;
@@ -19,31 +20,61 @@ const moods: { id: Mood; icon: string }[] = [
   { id: "repentance", icon: "fa-hands-praying" },
 ];
 const moodLabel = currentLang === "es" ? "Categoría" : "Mood";
+const mobileFilterLabel = currentLang === "es" ? "Filtrar categorías" : "Filter categories";
 ---
 
 <div class="w-full min-w-0 md:flex md:w-full md:justify-center">
   <form
     method="get"
     action=""
-    class="moodbar-mobile w-full md:hidden"
+    class="moodbar-mobile flex justify-center md:hidden"
     id="refugio-mood-form-m"
   >
     <input type="hidden" name="lang" class="refugio-mood-lang" value={currentLang} />
-    <label for="refugio-mood-select" class="sr-only">{moodLabel}</label>
-    <select
-      name="mood"
-      id="refugio-mood-select"
-      onchange="this.form.submit()"
-      class="refugio-mood-select block w-full min-h-[2.875rem] cursor-pointer rounded-xl border border-gold-500/30 bg-black/40 py-2.5 pl-3.5 pr-10 text-left text-sm leading-snug text-gold-100 shadow-inner outline-none ring-1 ring-inset ring-white/5 backdrop-blur-sm transition hover:border-gold-500/45 focus:border-gold-400/50 focus:ring-gold-500/20"
+    <input type="hidden" name="mood" id="refugio-mood-mobile-value" value={currentMood} />
+
+    <button
+      type="button"
+      id="refugio-mood-open"
+      data-mood-open
+      class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold-500/45 bg-black/45 text-gold-200 ring-1 ring-inset ring-white/5 backdrop-blur-sm transition hover:border-gold-500/60 hover:bg-black/55"
+      aria-label={moodLabel}
+      aria-haspopup="dialog"
+      aria-expanded="false"
+      title={mobileFilterLabel}
+      onclick="(function(){var s=document.getElementById('refugio-mood-sheet');var b=document.getElementById('refugio-mood-open');if(s){s.classList.remove('hidden');s.setAttribute('aria-hidden','false');}if(b){b.setAttribute('aria-expanded','true');}})()"
+    >
+      <i class="fa-solid fa-filter text-sm text-gold-300/95" aria-hidden="true" />
+      <span class="sr-only">{mobileFilterLabel}</span>
+    </button>
+
+    <MobileBottomSheet
+      id="refugio-mood-sheet"
+      title={moodLabel}
+      closeLabel={currentLang === "es" ? "Cerrar" : "Close"}
+      maxHeightClass="max-h-[72dvh]"
     >
       {
         moods.map((m) => (
-          <option value={m.id} selected={m.id === currentMood}>
-            {L[m.id]}
-          </option>
+          <button
+            type="button"
+            data-mood-sheet-btn={m.id}
+            class={`mood-sheet-option relative flex min-h-11 items-center justify-between rounded-xl border px-3 py-2 text-left transition active:scale-[0.99] ${
+              m.id === currentMood
+                ? "border-gold-400/70 bg-gold-500/18 text-gold-100"
+                : "border-gold-500/25 bg-white/[0.02] text-gold-100 hover:border-gold-500/40 hover:bg-white/[0.04]"
+            }`}
+            onclick={`(function(v){var h=document.getElementById('refugio-mood-mobile-value');if(h){h.value=v;}var f=document.getElementById('refugio-mood-form-m');if(f){f.submit();}})('${m.id}')`}
+          >
+            <span class="inline-flex items-center gap-2">
+              <i class={`fa-solid ${m.icon} text-[0.78rem] text-gold-300/90`} aria-hidden="true" />
+              <span data-mood-sheet-label={m.id} class="text-[13px] font-medium">{L[m.id]}</span>
+            </span>
+            <i class="fa-solid fa-circle-check text-[0.8rem] text-gold-300/90 opacity-0 transition-opacity" data-mood-sheet-check={m.id} aria-hidden="true" />
+          </button>
         ))
       }
-    </select>
+    </MobileBottomSheet>
   </form>
 
   <nav
@@ -98,4 +129,85 @@ const moodLabel = currentLang === "es" ? "Categoría" : "Mood";
     background: #0f172a;
     color: #f3e5ab;
   }
+  .mood-sheet-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+  .mood-sheet-option.is-active {
+    border-color: rgba(232, 197, 71, 0.78) !important;
+    background: linear-gradient(180deg, rgba(228, 192, 74, 0.24), rgba(201, 162, 39, 0.18)) !important;
+  }
+  .mood-sheet-option.is-active [data-mood-sheet-check] {
+    opacity: 1;
+  }
+  [data-mood-open].is-filter-active {
+    border-color: rgba(232, 197, 71, 0.78) !important;
+    background: linear-gradient(180deg, rgba(228, 192, 74, 0.26), rgba(201, 162, 39, 0.2)) !important;
+    color: #f8e9b8 !important;
+  }
+  [data-mood-open].is-filter-active i {
+    color: #f8e9b8 !important;
+    filter: drop-shadow(0 0 5px rgba(232, 197, 71, 0.45));
+  }
+  @media (min-width: 460px) {
+    .mood-sheet-body {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
 </style>
+
+<script is:inline>
+  (() => {
+    const form = document.getElementById("refugio-mood-form-m");
+    const openBtn = document.getElementById("refugio-mood-open");
+    const closeBtn = document.getElementById("refugio-mood-sheet-close");
+    const sheet = document.getElementById("refugio-mood-sheet");
+    const panel = document.getElementById("refugio-mood-sheet-panel");
+    const hiddenMood = document.getElementById("refugio-mood-mobile-value");
+    if (!form || !openBtn || !closeBtn || !sheet || !panel || !hiddenMood) return;
+
+    // Move sheet out of header stacking/containing context so fixed positioning is truly viewport-based.
+    if (sheet.parentElement !== document.body) {
+      document.body.appendChild(sheet);
+    }
+
+    const isHidden = () => sheet.classList.contains("hidden");
+    const openSheet = () => {
+      sheet.classList.remove("hidden");
+      sheet.classList.add("flex");
+      panel.classList.remove("translate-y-full");
+      panel.classList.add("translate-y-0");
+      sheet.setAttribute("aria-hidden", "false");
+      openBtn.setAttribute("aria-expanded", "true");
+    };
+    const closeSheet = () => {
+      panel.classList.remove("translate-y-0");
+      panel.classList.add("translate-y-full");
+      sheet.classList.remove("flex");
+      sheet.classList.add("hidden");
+      sheet.setAttribute("aria-hidden", "true");
+      openBtn.setAttribute("aria-expanded", "false");
+    };
+
+    openBtn.addEventListener("click", openSheet);
+    closeBtn.addEventListener("click", closeSheet);
+    sheet.addEventListener("click", (ev) => {
+      if (ev.target === sheet) closeSheet();
+    });
+    document.addEventListener("keydown", (ev) => {
+      if (ev.key === "Escape" && !isHidden()) closeSheet();
+    });
+
+    const refreshActiveState = () => {
+      if (!(hiddenMood instanceof HTMLInputElement)) return;
+      const current = hiddenMood.value;
+      form.querySelectorAll("[data-mood-sheet-btn]").forEach((el) => {
+        const v = el.getAttribute("data-mood-sheet-btn");
+        el.classList.toggle("is-active", v === current);
+      });
+      openBtn.classList.toggle("is-filter-active", current !== "all");
+    };
+    refreshActiveState();
+  })();
+</script>

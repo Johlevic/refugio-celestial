@@ -151,6 +151,7 @@ export function VerseCard({ initialFromBuild }: Props) {
           <DownloadButton
             captureElementId={CAPTURE}
             lang={lang}
+            verseRef={verse.ref}
             disabled={loading}
           />
         }

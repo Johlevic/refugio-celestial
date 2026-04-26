@@ -48,26 +48,27 @@
       });
 
       const labels = MOOD_LABELS[lang];
-      const moodSel = document.getElementById("refugio-mood-select");
-      if (moodSel && moodSel instanceof HTMLSelectElement) {
-        for (var j = 0; j < moodSel.options.length; j++) {
-          const opt = moodSel.options[j];
-          const value = opt.value;
-          if (Object.prototype.hasOwnProperty.call(labels, value)) {
-            opt.textContent = labels[value];
-          }
+      const mobileCurrent = document.querySelector("[data-mood-mobile-current]");
+      if (mobileCurrent && Object.prototype.hasOwnProperty.call(labels, mood)) {
+        mobileCurrent.textContent = labels[mood];
+      }
+      const mobileHidden = document.getElementById("refugio-mood-mobile-value");
+      if (mobileHidden && mobileHidden instanceof HTMLInputElement) {
+        mobileHidden.value = mood;
+      }
+      document.querySelectorAll("[data-mood-sheet-label]").forEach(function (el) {
+        const key = el.getAttribute("data-mood-sheet-label");
+        if (key && Object.prototype.hasOwnProperty.call(labels, key)) {
+          el.textContent = labels[key];
         }
-        if (MOODS.has(mood)) {
-          moodSel.value = mood;
-        }
-        var idx = -1;
-        for (var i = 0; i < moodSel.options.length; i++) {
-          if (moodSel.options[i].value === mood) {
-            idx = i;
-            break;
-          }
-        }
-        if (idx >= 0) moodSel.selectedIndex = idx;
+      });
+      document.querySelectorAll("[data-mood-sheet-btn]").forEach(function (el) {
+        const key = el.getAttribute("data-mood-sheet-btn");
+        el.classList.toggle("is-active", key === mood);
+      });
+      const openBtn = document.querySelector("[data-mood-open]");
+      if (openBtn) {
+        openBtn.classList.toggle("is-filter-active", mood !== "all");
       }
 
       document.querySelectorAll("[data-lang-btn]").forEach(function (b) {
@@ -104,9 +105,7 @@
     background: linear-gradient(180deg, #e4c04a, #c9a227) !important;
     color: #0a0b14 !important;
     font-weight: 700 !important;
-    box-shadow:
-      0 0 0 1px rgba(0, 0, 0, 0.12),
-      0 0 20px rgba(212, 175, 55, 0.35) !important;
+    box-shadow: none !important;
   }
   [data-mood-btn].nav-active i {
     color: #0a0b14;
