@@ -7,6 +7,7 @@ import {
   downloadVerseCaptureById,
 } from "./DownloadButton";
 import { showToast } from "@/lib/ui/toast";
+import { BottomSheet } from "@/components/ui/BottomSheet";
 
 type Props = {
   captureElementId: string;
@@ -34,6 +35,7 @@ export function VerseActionsMenu({
   const panelRef = useRef<HTMLDivElement>(null);
   const [hAlign, setHAlign] = useState<"open-left" | "open-right">("open-left");
   const [vAlign, setVAlign] = useState<"up" | "down">("down");
+  const [isMobile, setIsMobile] = useState(false);
 
   const t = useMemo(
     () =>
@@ -43,12 +45,14 @@ export function VerseActionsMenu({
             share: "Compartir",
             download: "Descargar PNG",
             copy: "Copiar texto",
+            close: "Cerrar",
           }
         : {
             actions: "Verse actions",
             share: "Share",
             download: "Download PNG",
             copy: "Copy text",
+            close: "Close",
           },
     [lang]
   );
@@ -56,13 +60,22 @@ export function VerseActionsMenu({
   const shareText = `“${verseText}” — ${verseRef}`;
 
   useEffect(() => {
-    if (!open) return;
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 767px)");
+    const sync = () => setIsMobile(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  useEffect(() => {
+    if (!open || isMobile) return;
     const onDown = (ev: MouseEvent) => {
       if (!boxRef.current?.contains(ev.target as Node)) setOpen(false);
     };
     document.addEventListener("mousedown", onDown);
     return () => document.removeEventListener("mousedown", onDown);
-  }, [open]);
+  }, [open, isMobile]);
 
   useEffect(() => {
     if (!open) return;
@@ -275,7 +288,7 @@ export function VerseActionsMenu({
         <div
           ref={panelRef}
           role="menu"
-          className={`absolute z-30 min-w-[10.5rem] max-w-[calc(100vw-1rem)] rounded-xl border border-gold-500/35 bg-[#0f1228]/95 p-1.5 shadow-[0_0_18px_rgba(0,0,0,0.45)] backdrop-blur-sm max-md:right-0 max-md:left-auto ${
+          className={`absolute z-30 hidden min-w-[10.5rem] max-w-[calc(100vw-1rem)] rounded-xl border border-gold-500/35 bg-[#0f1228]/95 p-1.5 shadow-[0_0_18px_rgba(0,0,0,0.45)] backdrop-blur-sm md:block ${
             hAlign === "open-left" ? "md:right-0 md:left-auto" : "md:left-0 md:right-auto"
           } ${vAlign === "down" ? "top-12" : "bottom-12"}`}
         >
@@ -311,6 +324,46 @@ export function VerseActionsMenu({
           </button>
         </div>
       ) : null}
+      <BottomSheet
+        isOpen={open && isMobile}
+        title={t.actions}
+        onClose={() => setOpen(false)}
+        closeLabel={t.close}
+        maxHeightClassName="max-h-[68dvh] md:max-h-[82vh]"
+      >
+        <div className="w-[calc(100vw-2.5rem)] max-w-[28rem] space-y-2">
+          <button
+            type="button"
+            role="menuitem"
+            onClick={onShare}
+            disabled={d}
+            className="flex w-full items-center gap-2 rounded-xl border border-gold-500/30 bg-gold-500/5 px-4 py-4 text-left text-sm font-medium text-gold-100/95 transition hover:bg-gold-500/10 disabled:opacity-60"
+          >
+            <i className="fa-solid fa-share-nodes w-4 text-gold-300/90" aria-hidden />
+            {t.share}
+          </button>
+          <button
+            type="button"
+            role="menuitem"
+            onClick={onDownload}
+            disabled={d}
+            className="flex w-full items-center gap-2 rounded-xl border border-gold-500/30 bg-gold-500/5 px-4 py-4 text-left text-sm font-medium text-gold-100/95 transition hover:bg-gold-500/10 disabled:opacity-60"
+          >
+            <i className="fa-solid fa-download w-4 text-gold-300/90" aria-hidden />
+            {t.download}
+          </button>
+          <button
+            type="button"
+            role="menuitem"
+            onClick={onCopy}
+            disabled={d}
+            className="flex w-full items-center gap-2 rounded-xl border border-gold-500/30 bg-gold-500/5 px-4 py-4 text-left text-sm font-medium text-gold-100/95 transition hover:bg-gold-500/10 disabled:opacity-60"
+          >
+            <i className="fa-solid fa-copy w-4 text-gold-300/90" aria-hidden />
+            {t.copy}
+          </button>
+        </div>
+      </BottomSheet>
 
       {showDownloadModal && typeof document !== "undefined"
         ? createPortal(
