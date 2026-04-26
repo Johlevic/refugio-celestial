@@ -187,7 +187,7 @@ export function VerseCardView({
       {actionSlot ? <div className="absolute right-3 top-3 z-20 max-md:hidden">{actionSlot}</div> : null}
 
       <div className="relative mb-3 flex w-full items-center justify-center sm:mb-3">
-        <p className="flex w-full justify-center max-md:pr-12">
+        <p className="flex w-full justify-center max-md:px-12">
           <span className="inline-flex max-w-[calc(100vw-8.5rem)] items-center justify-center gap-1.5 rounded-full border border-gold-500/40 bg-gold-500/10 px-3 py-1 text-center font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-400 sm:max-w-none">
             <i className="fa-solid fa-book-bible me-1.5 shrink-0 opacity-80" aria-hidden />
             <span className="truncate">{categoryLabel}</span>
